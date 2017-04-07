@@ -1,0 +1,8 @@
+
+@font-face {
+    font-family: "My Custom Font";
+    src: '/TheSansPlain.ttf' format("truetype");
+}
+h1.customfont { 
+    font-family: "My Custom Font", Verdana, Tahoma;
+}
