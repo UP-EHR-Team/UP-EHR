@@ -6,3 +6,12 @@
 body { 
     font-family: "My Custom Font", Verdana, Tahoma;
 }
+
+h1.login, h2.login {
+    text-align: center;
+    color: white;
+}
+
+body.login {
+    background-color: #7fb0cd;
+}
