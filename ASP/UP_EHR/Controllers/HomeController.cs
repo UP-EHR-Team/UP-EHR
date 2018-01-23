@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using UP_EHR.Models;
 
 namespace UP_EHR.Controllers
 {
@@ -22,8 +23,6 @@ namespace UP_EHR.Controllers
 
         public ActionResult Login()
         {
-            int hello = 5;
-            int why = hello * 3;
             RedirectToAction("Summary");
             return View();
         }
@@ -32,17 +31,14 @@ namespace UP_EHR.Controllers
         {
             //Log in logic can go here, and we can use a redirect if the login is unsuccessful
             //or we can use more involved ways of getting values from the textboxes
-            ViewBag.Message = "Hiiiiiiii Al";
-            var model = new Models.SummaryViewModel();
+            var model = new SummaryViewModel();
             model.username = UserName;
             model.password = Password;
-            model.john = "HIII JOHN";
             return View(model);
         }
 
         public ActionResult FlowSheets()
         {
-            ViewBag.Message = "How's it going?";
             return View();
         }
     }
