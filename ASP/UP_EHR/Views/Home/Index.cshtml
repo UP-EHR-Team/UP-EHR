@@ -5,12 +5,16 @@
         <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
         <title>Login</title>
     </head>
-    <h2>Univeristy of Portland EHR</h2>
-    <form action='@Url.Action("Summary","Home")' method='POST'>
-          Username : <input name='UserName' />
-          Password : <input name='Password' type='password' />
-          <input type='submit' value='Login' />
-    </form>
+    <h2 class="title">University of Portland EHR</h2>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form class="form-signin" action='@Url.Action("Summary","Home")' method='POST'>
+          Username<input class="form-control" name='UserName' />
+          Password<input class="form-control" name='Password' type='password' />
+          <input class="btn btn-primary" type='submit' value='Login' />
+        </form>
+    </div>
+    <div class="col-md-4"></div>
     <body>
     </body>
 </html>
