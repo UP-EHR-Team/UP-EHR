@@ -1,0 +1,16 @@
+﻿@font-face {
+    font-family: myFirstFont;
+    src: url('TheSansPlain.ttf') format("truetype")
+}
+
+body {
+    font-family: myFirstFont, Verdana, Tahoma;
+    background-color: #7fb0cd;
+}
+
+h1.login, h2.login, h2.title{
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 45px
+}
