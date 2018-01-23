@@ -98,6 +98,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Summary.cshtml" />
     <Content Include="Views\Home\FlowSheets.cshtml" />
+    <Content Include="Content\style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

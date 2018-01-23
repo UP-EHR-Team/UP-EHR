@@ -1,10 +1,17 @@
-﻿<h2>Univeristy of Portland EHR</h2>
-<form action='@Url.Action("Summary","Home")' method='POST'>
+﻿
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+        <title>Login</title>
+    </head>
+    <h2>Univeristy of Portland EHR</h2>
+    <form action='@Url.Action("Summary","Home")' method='POST'>
           Username : <input name='UserName' />
           Password : <input name='Password' type='password' />
           <input type='submit' value='Login' />
-</form>
+    </form>
+    <body>
+    </body>
+</html>
 
-<p>@Html.ActionLink("Go to Summary", "Summary", "HomeController")
-<br/>
-@Html.ActionLink("Go to Flow Sheets", "FlowSheets", "HomeController")</p>
