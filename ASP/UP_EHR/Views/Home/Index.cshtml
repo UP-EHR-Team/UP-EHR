@@ -1,0 +1,10 @@
+﻿<h2>Univeristy of Portland EHR</h2>
+<form action='@Url.Action("Summary","Home")' method='POST'>
+          Username : <input name='UserName' />
+          Password : <input name='Password' type='password' />
+          <input type='submit' value='Login' />
+</form>
+
+<p>@Html.ActionLink("Go to Summary", "Summary", "HomeController")
+<br/>
+@Html.ActionLink("Go to Flow Sheets", "FlowSheets", "HomeController")</p>
