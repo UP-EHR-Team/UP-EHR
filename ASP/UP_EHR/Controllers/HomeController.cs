@@ -21,19 +21,30 @@ namespace UP_EHR.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string UserName, string Password)
         {
-            RedirectToAction("Summary");
-            return View();
+            //logic to get incorrect user/pass to popup.
+            //TODO: need to put username and password on the server
+            //and need to check against those instead.
+
+            if (UserName.Equals("admin") && Password.Equals("admin"))
+            {
+                return RedirectToAction("Summary");
+            }
+            else {
+                //user/pass failure
+                return RedirectToAction("Index");
+            }
+            //return View();
         }
 
-        public ActionResult Summary(string UserName, string Password)
+        public ActionResult Summary()
         {
             //Log in logic can go here, and we can use a redirect if the login is unsuccessful
             //or we can use more involved ways of getting values from the textboxes
             var model = new SummaryViewModel();
-            model.username = UserName;
-            model.password = Password;
+            model.username = "Hello";
+            model.password = "Welcome to FlowSheets";
             return View(model);
         }
 

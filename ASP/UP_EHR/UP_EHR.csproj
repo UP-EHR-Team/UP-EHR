@@ -99,6 +99,7 @@
     <Content Include="Views\Home\Summary.cshtml" />
     <Content Include="Views\Home\FlowSheets.cshtml" />
     <Content Include="Content\style.css" />
+    <Content Include="University_of_Portland_shield.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
