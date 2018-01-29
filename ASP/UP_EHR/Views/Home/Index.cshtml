@@ -1,29 +1,31 @@
-﻿
-<html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
-        <title>Login</title>
-    </head>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-7">
-            <img align="left" class="resize" src="University_of_Portland_shield.png" width="100px" height="auto"/>
-            <h2 class="title">University of Portland EHR</h2>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-    <div class="col-md-4"></div>
+﻿@{
+    ViewBag.Title = "Login";
+}
 
-    <div class="col-md-4">
-        <p class="hi">hi</p>
-        <form class="form-signin" action='@Url.Action("Login","Home")' method='POST'>
-          Username<input class="form-control" name='UserName' />
-          Password<input class="form-control" name='Password' type='password' />
-          <input class="btn btn-primary" type='submit' value='Login' />
-        </form>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7">
+        <img align="left" class="resize" src="University_of_Portland_shield.png" width="100px" height="auto"/>
+        <h2 class="title">University of Portland EHR</h2>
     </div>
-    <div class="col-md-4"></div>
-    <body>
-    </body>
-</html>
+    <div class="col-md-3"></div>
+</div>
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+    <p id="loginErr">Invalid Login Credentials</p>
+    <form class="form-signin" action='@Url.Action("Login","Home")' method='POST'>
+      Username<input class="form-control" name='UserName' />
+      Password<input class="form-control" name='Password' type='password' />
+      <input class="btn btn-primary" type='submit' onclick="check(this.form)" value='Login' />
+    </form>
+</div>
+<div class="col-md-4"></div>
+
+@section scripts {
+    <script type="text/javascript">
+        
+
+    </script>
+}

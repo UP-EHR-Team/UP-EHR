@@ -35,7 +35,6 @@ namespace UP_EHR.Controllers
                 //user/pass failure
                 return RedirectToAction("Index");
             }
-            //return View();
         }
 
         public ActionResult Summary()
