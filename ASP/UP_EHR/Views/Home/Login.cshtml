@@ -9,7 +9,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-7">
         <img align="left" class="resize" src="University_of_Portland_shield.png" width="100px" height="auto"/>
-        <h2 class="title">University of Portland EHR</h2>
+        <h2 align="right" class="title">UP Electronic Health Record</h2>
     </div>
     <div class="col-md-3"></div>
 </div>
@@ -30,6 +30,7 @@
     {
         <div>
             <fieldset>
+                <p class="errorMsg">@Model.errorMsg</p>
                 <div>
                     @Html.Label(" Username", new { style = "color:white"})
                     @Html.TextBoxFor(model => model.username, new {Class="form-control"})
@@ -38,13 +39,15 @@
                     @Html.Label(" Password", new { style = "color:white" })
                     @Html.TextBoxFor(model => model.password, new {Class="form-control", @type = "password"})
                 </div>
-                <input class="btn btn-primary" type="submit" value="Login"/>
-                <p class="errorMsg">@Model.errorMsg</p>
+                <input id="login_btn" class="btn btn-primary" type="submit" value="Login" />
+
             </fieldset>
         </div>
     }
 </div>
 <div class="col-md-4"></div>
+
+<p id="warning">*This software is for educational purposes only, do not enter real patient data</p>
 
 @section scripts {
     <script type="text/javascript">

@@ -25,3 +25,22 @@ p {
 .errorMsg {
     color: #ff0000
 }
+#LoginTitle {
+    width: 100%;
+
+    align-content: center
+}
+#warning {
+    color: red;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center
+
+}
+
+#login_btn {
+    background-color: #5E6A71;
+    outline-color: #5E6A71;
+    margin-top: 10px
+}
