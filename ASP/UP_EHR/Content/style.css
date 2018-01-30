@@ -21,3 +21,7 @@ p {
 .hi {
     color: white
 }
+
+.errorMsg {
+    color: #ff0000
+}

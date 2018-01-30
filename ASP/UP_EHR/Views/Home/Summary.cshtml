@@ -12,7 +12,23 @@
         <title>Summary</title>
 </head>
 <body>
-        Welcome to Summary
+    @using(Html.BeginForm("Summary", "Home", FormMethod.Post))
+    {
+        <div>
+            <fieldset>
+                <div>
+                    @Html.TextBoxFor(model => model.username, new {Class="form-control"})
+                </div>
+                <div>
+                    @Html.TextBoxFor(model => model.password, new {Class="form-control"})
+                </div>
+                <input type="submit" value="Log in"/>
+            </fieldset>
+        </div>
+    }
+        <div>
+            @Model.john
+        </div>
 </body>
 </html>
 
