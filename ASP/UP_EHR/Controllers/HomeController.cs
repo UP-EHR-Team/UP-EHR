@@ -50,7 +50,7 @@ namespace UP_EHR.Controllers
             //and need to check against those instead.
             if (UserName.Equals("admin") && Password.Equals("admin"))
             {
-                return RedirectToAction("Summary");
+                return RedirectToAction("AssignPatient");
             }
             else {
                 //user/pass failure
@@ -61,6 +61,7 @@ namespace UP_EHR.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Summary()
         {
             //Log in logic can go here, and we can use a redirect if the login is unsuccessful
@@ -92,6 +93,12 @@ namespace UP_EHR.Controllers
                 return View(model);
             }
             //return View();
+        }
+
+        [HttpGet]
+        public ActionResult AssignPatient()
+        {
+            return View();
         }
     }
 }

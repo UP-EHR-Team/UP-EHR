@@ -87,6 +87,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Models\SummaryViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\AssignPatientModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -128,6 +129,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1-vsdoc.js" />
+    <Content Include="Views\Home\AssignPatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />
