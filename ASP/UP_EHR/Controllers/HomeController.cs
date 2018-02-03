@@ -89,7 +89,6 @@ namespace UP_EHR.Controllers
             }
             else 
             {
-                model.john = "ERROR";
                 return View(model);
             }
             //return View();
@@ -98,7 +97,8 @@ namespace UP_EHR.Controllers
         [HttpGet]
         public ActionResult AssignPatient()
         {
-            return View();
+            var model = new AssignPatientModel();
+            return View(model);
         }
     }
 }
