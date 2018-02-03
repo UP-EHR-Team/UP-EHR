@@ -5,13 +5,22 @@
 
 body {
     font-family: myFirstFont, Verdana, Tahoma;
-    background-color: #7fb0cd
+
+    /*background-color: #7fb0cd*/
+   
 }
 
 h1.login, h2.login, h2.title {
-    color: white;
+    /*color: white;*/
+    color: #1E1656;
     margin-top: 40px;
-    font-size: 45px
+    font-size: 40px
+}
+
+.input_lbl {
+    color: #1E1656;
+    font-family: myFirstFont, Verdana, Tahoma;
+
 }
 
 p {
@@ -42,5 +51,13 @@ p {
 #login_btn {
     background-color: #5E6A71;
     outline-color: #5E6A71;
-    margin-top: 10px
+    margin-top: 10px;
+    align-content: center
 }
+#buffer {
+    margin: 30px;
+}
+#ctr {
+    align-content: center
+}
+

@@ -4,7 +4,7 @@
     ViewBag.Title = "Login";
 }
 
-
+<div id="buffer" class="row"></div>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-7">
@@ -32,14 +32,16 @@
             <fieldset>
                 <p class="errorMsg">@Model.errorMsg</p>
                 <div>
-                    @Html.Label(" Username", new { style = "color:white"})
+                    @Html.Label(" Username", new { Class="input_lbl"})
                     @Html.TextBoxFor(model => model.username, new {Class="form-control"})
                 </div>
                 <div>
-                    @Html.Label(" Password", new { style = "color:white" })
+                    @Html.Label(" Password", new { @class="input_lbl" })
                     @Html.TextBoxFor(model => model.password, new {Class="form-control", @type = "password"})
                 </div>
-                <input id="login_btn" class="btn btn-primary" type="submit" value="Login" />
+                <div id="ctr" class="col-md-12">
+                    <input id="login_btn" class="btn btn-primary" type="submit" value="Login" />
+                </div>
 
             </fieldset>
         </div>
