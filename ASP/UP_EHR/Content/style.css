@@ -1,6 +1,6 @@
 ﻿@font-face {
     font-family: myFirstFont;
-    src: url('~/Resources/TheSansPlain.ttf') format("truetype")
+    src: url('/Resources/TheSansPlain.ttf') format("truetype")
 }
 
 body {
@@ -13,8 +13,9 @@ body {
 h1.login, h2.login, h2.title {
     /*color: white;*/
     color: #1E1656;
-    margin-top: 40px;
-    font-size: 40px
+    margin-bottom: 50px;
+    font-size: 60px;
+    text-align: center
 }
 
 .input_lbl {
@@ -62,5 +63,5 @@ p {
 }
 
 .resize {
-    margin-right: 30px;
+    align-content: center
 }
