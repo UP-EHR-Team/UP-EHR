@@ -51,12 +51,12 @@ p {
 
 #login_btn {
     background-color: #5E6A71;
-    outline-color: #5E6A71;
+    border-color: #5E6A71;
     margin-top: 10px;
     align-content: center
 }
 #buffer {
-    margin: 30px;
+    margin: 10px;
 }
 #ctr {
     align-content: center
@@ -64,4 +64,18 @@ p {
 
 .resize {
     align-content: center
+}
+.list-group {
+   
+    padding-right: 0px
+
+}
+.list-group-item.active {
+    background-color: #1E1656;
+    border-color: #1E1656;
+
+
+}
+a:hover {
+    color: grey
 }
