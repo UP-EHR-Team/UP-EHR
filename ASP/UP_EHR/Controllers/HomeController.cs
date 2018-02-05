@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using UP_EHR.Models;
+using UP_EHR.DatabaseObjects;
 
 namespace UP_EHR.Controllers
 {
@@ -99,6 +100,16 @@ namespace UP_EHR.Controllers
         public ActionResult AssignPatient()
         {
             var model = new AssignPatientModel();
+            Patient Jean = new Patient { firstName = "Jean", lastName = "Deaux" };
+            Patient Jon = new Patient { firstName = "Jon", lastName = "Do" };
+            Patient John = new Patient { firstName = "John", lastName = "Doe" };
+            Patient Geon = new Patient { firstName = "Geon", lastName = "Dough" };
+            List<Patient> listOfPatients = new List<Patient>();
+            listOfPatients.Add(Jean);
+            listOfPatients.Add(Jon);
+            listOfPatients.Add(John);
+            listOfPatients.Add(Geon);
+            model.Patients = listOfPatients;
             return View(model);
         }
     }

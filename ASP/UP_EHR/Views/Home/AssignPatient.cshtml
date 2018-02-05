@@ -25,10 +25,11 @@
   <a href="#" class="list-group-item active">
     Assign Patient
   </a>
-  <a href="#" class="list-group-item list-group-item-action">Deaux, Jean</a>
-  <a href="#" class="list-group-item list-group-item-action">Do, Jon</a>
-  <a href="#" class="list-group-item list-group-item-action">Doe, John</a>
-  <a href="#" class="list-group-item list-group-item-action">Dough, Geon</a>
+    @for(var i = 0; i < @Model.Patients.Count; i++) 
+    {
+        <a href='@Url.Action("Summary")' class="list-group-item list-group-item-action"> @Model.Patients.ElementAt(i).lastName , @Model.Patients.ElementAt(i).firstName </a>
+    }
+
   <a href="#" class="list-group-item list-group-item-action">Create New Patient</a>
 </div>
 <div class="col-md-3"></div>

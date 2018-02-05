@@ -3,8 +3,7 @@ namespace UP_EHR.DatabaseObjects
 {
     public class Patient
     {
-        public Patient()
-        {
-        }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
     }
 }

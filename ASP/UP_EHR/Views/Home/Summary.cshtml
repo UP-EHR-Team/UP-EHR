@@ -1,34 +1,8 @@
 ﻿@model SummaryViewModel
 
 @{
-    Layout = null;
+    ViewBag.Title = "Summary";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" /> 
-        <title>Summary</title>
-</head>
-<body>
-    @using(Html.BeginForm("Summary", "Home", FormMethod.Post))
-    {
-        <div>
-            <fieldset>
-                <div>
-                    @Html.TextBoxFor(model => model.username, new {Class="form-control"})
-                </div>
-                <div>
-                    @Html.TextBoxFor(model => model.password, new {Class="form-control"})
-                </div>
-                <input type="submit" value="Log in"/>
-            </fieldset>
-        </div>
-    }
-        <div>
-            @Model.john
-        </div>
-</body>
-</html>
 
+<body>Summary Page under construction...</body>
