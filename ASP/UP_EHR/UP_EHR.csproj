@@ -94,6 +94,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\AssignPatientModel.cs" />
     <Compile Include="DatabaseObjects\Patient.cs" />
+    <Compile Include="Models\CreatePatientModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -137,6 +138,7 @@
     <Content Include="Views\Home\AssignPatient.cshtml" />
     <Content Include="Resources\TheSansPlain.ttf" />
     <Content Include="Resources\University_of_Portland_shield.png" />
+    <Content Include="Views\Home\CreatePatient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

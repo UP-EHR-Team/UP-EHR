@@ -112,5 +112,22 @@ namespace UP_EHR.Controllers
             model.Patients = listOfPatients;
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult CreatePatient()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreatePatient(CreatePatientModel model)
+        {
+            //data entered by user is in 'model'.
+            //send this data to the database here.
+            //once successful, go to AssignPatient screen, as seen in Functional Spec Flow Chart
+
+
+            return RedirectToAction("AssignPatient");
+        }
     }
 }

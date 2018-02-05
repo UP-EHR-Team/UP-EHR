@@ -30,6 +30,6 @@
         <a href='@Url.Action("Summary")' class="list-group-item list-group-item-action"> @Model.Patients.ElementAt(i).lastName , @Model.Patients.ElementAt(i).firstName </a>
     }
 
-  <a href="#" class="list-group-item list-group-item-action">Create New Patient</a>
+  <a href='@Url.Action("CreatePatient")' class="list-group-item list-group-item-action">Create New Patient</a>
 </div>
 <div class="col-md-3"></div>
