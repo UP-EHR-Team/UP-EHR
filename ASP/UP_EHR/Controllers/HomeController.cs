@@ -52,7 +52,8 @@ namespace UP_EHR.Controllers
             {
                 return RedirectToAction("AssignPatient");
             }
-            else {
+            else
+            {
                 //user/pass failure
                 model.username = "";
                 model.password = "";
@@ -72,11 +73,6 @@ namespace UP_EHR.Controllers
             return View(model);
         }
 
-        public ActionResult FlowSheets()
-        {
-            return View();
-        }
-
         [HttpPost]
         public ActionResult Summary(SummaryViewModel model)
         {
@@ -92,6 +88,11 @@ namespace UP_EHR.Controllers
                 return View(model);
             }
             //return View();
+        }
+
+        public ActionResult FlowSheets()
+        {
+            return View();
         }
 
         [HttpGet]

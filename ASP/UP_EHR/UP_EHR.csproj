@@ -81,6 +81,7 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Resources\" />
+    <Folder Include="DatabaseObjects\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Models\SummaryViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\AssignPatientModel.cs" />
+    <Compile Include="DatabaseObjects\Patient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
