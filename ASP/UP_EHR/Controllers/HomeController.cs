@@ -123,7 +123,7 @@ namespace UP_EHR.Controllers
         public ActionResult CreatePatient(CreatePatientModel model)
         {
             //data entered by user is in 'model'.
-            //send this data to the database here.
+            //send this data to the database here. ie Add patient to database
             //once successful, go to AssignPatient screen, as seen in Functional Spec Flow Chart
 
 

@@ -5,3 +5,25 @@
 }
 
 <body>Create a new patient under construction</body>
+
+<div class="col-md-4">
+    @using(Html.BeginForm("CreatePatient", "Home", FormMethod.Post))
+    {
+        <div>
+            <fieldset>
+                <div>
+                    @Html.Label(" First Name", new { Class="input_lbl"})
+                    @Html.TextBoxFor(model => model.firstName, new {Class="form-control"})
+                </div>
+                <div>
+                    @Html.Label(" Last Name", new { @class="input_lbl" })
+                    @Html.TextBoxFor(model => model.lastName, new {Class="form-control"})
+                </div>
+                <div id="ctr" class="col-md-12">
+                    <input id="login_btn" class="btn btn-primary" type="submit" value="CreatePatient" />
+                </div>
+
+            </fieldset>
+        </div>
+    }
+</div>
