@@ -19,7 +19,7 @@ namespace UP_EHR.Models
         public string isolation { get; set; }
         public string infection { get; set; }
         public string codeStatus { get; set; }
-        public string heathcareDirs { get; set; }
+        public string healthcareDirs { get; set; }
         public string language { get; set; }
     }
 }
