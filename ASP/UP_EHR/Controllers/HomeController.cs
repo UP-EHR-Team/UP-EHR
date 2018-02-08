@@ -181,11 +181,12 @@ namespace UP_EHR.Controllers
         {
             //DATABASE CONNECTION STUB START //
             //connect to database and run desired query for retrieving data
-            connection.Open();
-            string query = "SELECT * FROM patients";
+
+            //connection.Open();
+            /*string query = "SELECT * FROM patients";
             List<string> temp_arr = new List<string>();
             //Create Command
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //MySqlCommand cmd = new MySqlCommand(query, connection);
             //Create a data reader and Execute the command
             MySqlDataReader dataReader = cmd.ExecuteReader();
             int i = 0;
@@ -195,7 +196,7 @@ namespace UP_EHR.Controllers
 
             }
             connection.Close();
-            //DATABASE CONNECTION STUB END //
+            //DATABASE CONNECTION STUB END //*/
 
             return View();
         }
