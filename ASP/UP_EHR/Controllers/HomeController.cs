@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using UP_EHR.Models;
 using UP_EHR.DatabaseObjects;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace UP_EHR.Controllers
@@ -154,15 +155,15 @@ namespace UP_EHR.Controllers
             MySqlCommand cmd = new MySqlCommand(query, connection);
             //Create a data reader and Execute the command
             MySqlDataReader dataReader = cmd.ExecuteReader();
-            int i = 0;
+            //int i = 0;
             while(dataReader.Read())
             {
-                first_names[i] = dataReader.GetString(1);
-                last_names[i] = dataReader.GetString(1);
+                first_names.Add(dataReader.GetString(1));
+                last_names.Add(dataReader.GetString(2));
             }
             connection.Close();
 
-            for(int j = 0; j < i; j++)
+            for(int j = 0; j < first_names.Count(); j++)
             {
                 Patient temp = new Patient { firstName = "", lastName = "" };
                 temp.firstName = first_names[j];

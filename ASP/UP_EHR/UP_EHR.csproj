@@ -75,6 +75,10 @@
     <Reference Include="AWSSDK.Core">
       <HintPath>packages\AWSSDK.Core.3.3.21.9\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\mysql-connector-net-6.10.6-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -167,6 +171,17 @@
     <None Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="docs\MySqlTransaction.xml" />
+    <None Include="docs\MySqlParameterCollection.xml" />
+    <None Include="docs\MySqlParameter.xml" />
+    <None Include="docs\MySqlHelper.xml" />
+    <None Include="docs\MySqlException.xml" />
+    <None Include="docs\MySqlDataReader.xml" />
+    <None Include="docs\MySqlDataAdapter.xml" />
+    <None Include="docs\MySqlConnectionStringBuilder.xml" />
+    <None Include="docs\MySqlConnection.xml" />
+    <None Include="docs\MySqlCommandBuilder.xml" />
+    <None Include="docs\MySqlCommand.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
