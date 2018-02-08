@@ -6,11 +6,24 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using UP_EHR.Models;
 using UP_EHR.DatabaseObjects;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace UP_EHR.Controllers
 {
     public class HomeController : Controller
     {
+        //Set the database connection variables
+        static string dbuser = "upehr";
+        static string dbpass = "graduate";
+        static string dbhost = "aa182qkpqn2nq7j.czhw4bdantwp.us-west-2.rds.amazonaws.com";
+        static string dbname = "upehr";
+        static string dbconnect = "Data Source=" + dbhost + ";Initial Catalog=" + dbname + ";User ID=" + dbuser + ";Password=" + dbpass + ";";
+
+        //Initilalize conneciton to be opened and closed during later HTTP responses
+        MySqlConnection connection = new MySqlConnection(dbconnect);
+
+
         public ActionResult Index()
         {
             var mvcName = typeof(Controller).Assembly.GetName();
@@ -71,6 +84,26 @@ namespace UP_EHR.Controllers
             var model = new SummaryViewModel();
             model.username = "Hello";
             model.password = "Welcome to FlowSheets";
+
+
+            //DATABASE CONNECTION STUB START //
+            //connect to database and run desired query for retrieving data
+            connection.Open();
+            string query = "SELECT * FROM patients";
+            List<string> temp_arr = new List<string>();
+            //Create Command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                temp_arr[i] = dataReader.GetString(1);
+
+            }
+            connection.Close();
+            //DATABASE CONNECTION STUB END //
+
             return View(model);
         }
 
@@ -104,11 +137,41 @@ namespace UP_EHR.Controllers
             Patient Jon = new Patient { firstName = "Jon", lastName = "Do" };
             Patient John = new Patient { firstName = "John", lastName = "Doe" };
             Patient Geon = new Patient { firstName = "Geon", lastName = "Dough" };
+
             List<Patient> listOfPatients = new List<Patient>();
             listOfPatients.Add(Jean);
             listOfPatients.Add(Jon);
             listOfPatients.Add(John);
             listOfPatients.Add(Geon);
+
+            //IMPLEMENTED DATABASE CONNECTION START//
+            connection.Open();
+            string query = "SELECT * FROM patients";
+            //Create a list to store the result
+            List<string> first_names = new List<string>();
+            List<string> last_names = new List<string>();
+
+            //Create Command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            //int i = 0;
+            while(dataReader.Read())
+            {
+                first_names.Add(dataReader.GetString(1));
+                last_names.Add(dataReader.GetString(2));
+            }
+            connection.Close();
+
+            for(int j = 0; j < first_names.Count(); j++)
+            {
+                Patient temp = new Patient { firstName = "", lastName = "" };
+                temp.firstName = first_names[j];
+                temp.lastName = last_names[j];
+                listOfPatients.Add(temp);
+            }
+            //IMPLEMENTED DATABASE CONNECTION END//
+
             model.Patients = listOfPatients;
             return View(model);
         }
@@ -116,6 +179,25 @@ namespace UP_EHR.Controllers
         [HttpGet]
         public ActionResult CreatePatient()
         {
+            //DATABASE CONNECTION STUB START //
+            //connect to database and run desired query for retrieving data
+
+            //connection.Open();
+            /*string query = "SELECT * FROM patients";
+            List<string> temp_arr = new List<string>();
+            //Create Command
+            //MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            int i = 0;
+            while (dataReader.Read())
+            {
+                temp_arr[i] = dataReader.GetString(1);
+
+            }
+            connection.Close();
+            //DATABASE CONNECTION STUB END //*/
+
             return View();
         }
 
