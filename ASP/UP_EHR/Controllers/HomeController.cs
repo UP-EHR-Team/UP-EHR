@@ -218,7 +218,7 @@ namespace UP_EHR.Controllers
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
 
-
+            /*
             //TESTING DATABASE UPLOAD, delete once you've verified it workds
             //TODO: Delete this
             query = "SELECT * FROM patients";
@@ -238,7 +238,7 @@ namespace UP_EHR.Controllers
                 first_names.Add(dataReader.GetString(1));
                 last_names.Add(dataReader.GetString(2));
             }
-
+            */
 
             connection.Close();
             return RedirectToAction("AssignPatient");
