@@ -4,13 +4,24 @@
     ViewBag.Title = "Create Patient";
 }
 
-<body>Create a new patient under construction</body>
+<div id="buffer" class="row">
+    <div class="col-md-1">
+        <img class="resize" src='@Url.Content("~/Resources/University_of_Portland_shield.png")' alt="Image" width="75px" height="auto"/>
+    </div>
+    <div class="col-md-11">
+        <h2 class="new-patient">New Patient</h2>
+    </div>
 
-<div class="col-md-4">
-    @using(Html.BeginForm("CreatePatient", "Home", FormMethod.Post))
+</div>
+
+<!--<body>Create a new patient under construction</body>-->
+
+@using(Html.BeginForm("CreatePatient", "Home", FormMethod.Post))
     {
         <div>
             <fieldset>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
                 <div>
                     @Html.Label(" First Name", new { Class="input_lbl"})
                     @Html.TextBoxFor(model => model.firstName, new {Class="form-control"})
@@ -43,6 +54,8 @@
                     @Html.Label(" Unit", new { @class="input_lbl" })
                     @Html.TextBoxFor(model => model.unit, new {Class="form-control"})
                 </div>
+             </div>
+             <div class="col-md-4">  
                 <div>
                     @Html.Label(" Allergies", new { @class="input_lbl" })
                     @Html.TextBoxFor(model => model.allergies, new {Class="form-control"})
@@ -75,11 +88,16 @@
                     @Html.Label(" Language", new { @class="input_lbl" })
                     @Html.TextBoxFor(model => model.language, new {Class="form-control"})
                 </div>
-                <div id="ctr" class="col-md-12">
-                    <input id="login_btn" class="btn btn-primary" type="submit" value="Create" />
+                <div class="col-md-9"></div>
+                <div id="right" class="col-md-3">
+                    <input id="create_button" class="btn btn-primary" type="submit" value="Create" />
                 </div>
 
+            </div>
+            <div class="col-md-2"></div>
             </fieldset>
         </div>
     }
-</div>
+
+
+
