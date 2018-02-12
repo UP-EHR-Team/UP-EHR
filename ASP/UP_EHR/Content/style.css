@@ -113,4 +113,10 @@ a#create_patient:hover {
 
 #ap_title {
     font-size: 20px;
+   
+}
+a#ap_title:hover {
+    background-color: #1E1656;
+    color: white
+
 }
