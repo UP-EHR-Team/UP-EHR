@@ -82,8 +82,6 @@ namespace UP_EHR.Controllers
             //Log in logic can go here, and we can use a redirect if the login is unsuccessful
             //or we can use more involved ways of getting values from the textboxes
             var model = new SummaryViewModel();
-            model.username = "Hello";
-            model.password = "Welcome to FlowSheets";
 
 
             //DATABASE CONNECTION STUB START //
@@ -110,18 +108,7 @@ namespace UP_EHR.Controllers
         [HttpPost]
         public ActionResult Summary(SummaryViewModel model)
         {
-            string username = model.username;
-            string password = model.password;
-
-            if (username.Equals("admin"))
-            {
-                return View();
-            }
-            else 
-            {
-                return View(model);
-            }
-            //return View();
+            return View();
         }
 
         public ActionResult FlowSheets()
