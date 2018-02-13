@@ -125,7 +125,7 @@ namespace UP_EHR.Controllers
 
             //IMPLEMENTED DATABASE CONNECTION START//
             connection.Open();
-            string query = "SELECT * FROM patients";
+            string query = "SELECT * FROM ehr_patients";
             //Create a list to store the result
             List<string> first_names = new List<string>();
             List<string> last_names = new List<string>();
@@ -191,7 +191,7 @@ namespace UP_EHR.Controllers
             MySqlCommand cm1 = new MySqlCommand(query1, connection);
             cm1.ExecuteNonQuery();*/
 
-            string query = $"INSERT INTO patients (first_name, last_name) VALUES ('{model.firstName}', '{model.lastName}')";
+            string query = $"INSERT INTO ehr_patients (first_name, last_name, gender, birthdate, weight, bmi, unit, admit_date, room, allergies, attending, isolation, infection, code_status, healthcare_directives, language) VALUES ('{model.firstName}', '{model.lastName}', '{model.gender}', '{model.birthDate}', '{model.weight}', '{model.bmi}', '{model.unit}', '{model.admitDate}', '{model.room}', '{model.allergies}', '{model.attending}', '{model.isolation}', '{model.infection}', '{model.codeStatus}', '{model.healthcareDirs}', '{model.language}')";
             //string query = $"INSERT INTO patients (idpatients, first_name, last_name) VALUES (77, 'Timothy', 'MacNary')";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
