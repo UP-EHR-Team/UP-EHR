@@ -158,25 +158,7 @@ namespace UP_EHR.Controllers
         [HttpGet]
         public ActionResult CreatePatient()
         {
-            //DATABASE CONNECTION STUB START //
-            //connect to database and run desired query for retrieving data
-
-            //connection.Open();
-            /*string query = "SELECT * FROM patients";
-            List<string> temp_arr = new List<string>();
-            //Create Command
-            //MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-            int i = 0;
-            while (dataReader.Read())
-            {
-                temp_arr[i] = dataReader.GetString(1);
-
-            }
-            connection.Close();
-            //DATABASE CONNECTION STUB END //*/
-
+            //NO DATABASE CONNECTION NEEDED FOR GET REQUESTS TO THIS PAGE
             return View();
         }
 
@@ -187,39 +169,15 @@ namespace UP_EHR.Controllers
             //send this data to the database here. ie Add patient to database
             //once successful, go to AssignPatient screen, as seen in Functional Spec Flow Chart
             connection.Open();
-            /*string query1 = $"DELETE FROM patients WHERE idpatients>4";
-            MySqlCommand cm1 = new MySqlCommand(query1, connection);
-            cm1.ExecuteNonQuery();*/
 
+            //generate mysql query with data stored in model
             string query = $"INSERT INTO ehr_patients (first_name, last_name, gender, birthdate, weight, bmi, unit, admit_date, room, allergies, attending, isolation, infection, code_status, healthcare_directives, language) VALUES ('{model.firstName}', '{model.lastName}', '{model.gender}', '{model.birthDate}', '{model.weight}', '{model.bmi}', '{model.unit}', '{model.admitDate}', '{model.room}', '{model.allergies}', '{model.attending}', '{model.isolation}', '{model.infection}', '{model.codeStatus}', '{model.healthcareDirs}', '{model.language}')";
-            //string query = $"INSERT INTO patients (idpatients, first_name, last_name) VALUES (77, 'Timothy', 'MacNary')";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
+            //run query and insert data into the database
             cmd.ExecuteNonQuery();
-
-            /*
-            //TESTING DATABASE UPLOAD, delete once you've verified it workds
-            //TODO: Delete this
-            query = "SELECT * FROM patients";
-            //Create a list to store the result
-            List<string> first_names = new List<string>();
-            List<string> last_names = new List<string>();
-            List<int> idpats = new List<int>();
-
-            //Create Command
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command
-            MySqlDataReader dataReader = cmd2.ExecuteReader();
-            //int i = 0;
-            while (dataReader.Read())
-            {
-                idpats.Add(dataReader.GetInt32(0));
-                first_names.Add(dataReader.GetString(1));
-                last_names.Add(dataReader.GetString(2));
-            }
-            */
-
             connection.Close();
+
             return RedirectToAction("AssignPatient");
         }
     }
