@@ -77,30 +77,49 @@ namespace UP_EHR.Controllers
         }
 
         [HttpGet]
-        public ActionResult Summary()
+        public ActionResult Summary(int databaseId)
         {
-            //Log in logic can go here, and we can use a redirect if the login is unsuccessful
-            //or we can use more involved ways of getting values from the textboxes
             var model = new SummaryViewModel();
 
 
             //DATABASE CONNECTION STUB START //
-            //connect to database and run desired query for retrieving data
-            /*connection.Open();
-            string query = "SELECT * FROM patients";
-            List<string> temp_arr = new List<string>();
-            //Create Command
+            connection.Open();
+            string query = $"SELECT * FROM ehr_patients WHERE idehr_patients = {databaseId}";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            //Create a data reader and Execute the command
             MySqlDataReader dataReader = cmd.ExecuteReader();
-            int i = 0;
+
             while (dataReader.Read())
             {
-                temp_arr[i] = dataReader.GetString(1);
+                model.firstName = dataReader.GetString(1);
+                model.lastName = dataReader.GetString(2);
+                model.gender = dataReader.GetString(3);
+                model.birthDate = dataReader.GetString(4);
+                model.weight = dataReader.GetString(5);
+                model.bmi = dataReader.GetString(6);
+                model.unit = dataReader.GetString(7);
+                model.admitDate = dataReader.GetString(8);
+                model.room = dataReader.GetString(9);
+                model.allergies = dataReader.GetString(10);
+                model.attending = dataReader.GetString(11);
+                model.isolation = dataReader.GetString(12);
+                model.infection = dataReader.GetString(13);
+                model.codeStatus = dataReader.GetString(14);
+                model.healthcareDirs = dataReader.GetString(15);
+                model.language = dataReader.GetString(16);
+
+
+                //TODO: Everything below here needs to be put with the correct index in the database
+                model.age = "TEST y.o.";
+
+                //TODO: this line from other table that needs to be built
+                //model.inputData = dataReader.GetString(2);
+
+                //TODO: this line from other table that needs to be built
+                //model.mrn = dataReader.GetString(2);
 
             }
-            connection.Close();*/
-            //DATABASE CONNECTION STUB END //
+            connection.Close();
+            //DATABASE CONNECTION STUB STOP //
 
             return View(model);
         }
@@ -129,6 +148,7 @@ namespace UP_EHR.Controllers
             //Create a list to store the result
             List<string> first_names = new List<string>();
             List<string> last_names = new List<string>();
+            List<int> db_ids = new List<int>();
 
             //Create Command
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -137,6 +157,7 @@ namespace UP_EHR.Controllers
             //int i = 0;
             while(dataReader.Read())
             {
+                db_ids.Add(dataReader.GetInt32(0)); //try using getstring if this doesn't work
                 first_names.Add(dataReader.GetString(1));
                 last_names.Add(dataReader.GetString(2));
             }
@@ -145,6 +166,7 @@ namespace UP_EHR.Controllers
             for(int j = 0; j < first_names.Count(); j++)
             {
                 Patient temp = new Patient { firstName = "", lastName = "" };
+                temp.databaseId = db_ids[j];
                 temp.firstName = first_names[j];
                 temp.lastName = last_names[j];
                 listOfPatients.Add(temp);

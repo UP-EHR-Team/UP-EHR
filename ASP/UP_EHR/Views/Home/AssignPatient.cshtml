@@ -27,7 +27,7 @@
   </a>
     @for(var i = 0; i < @Model.Patients.Count; i++) 
     {
-        <a href='@Url.Action("Summary")' class="list-group-item list-group-item-action">@Model.Patients.ElementAt(i).lastName, @Model.Patients.ElementAt(i).firstName </a>
+        <a href='@Url.Action("Summary", new { databaseId = @Model.Patients.ElementAt(i).databaseId } )' class="list-group-item list-group-item-action">@Model.Patients.ElementAt(i).lastName, @Model.Patients.ElementAt(i).firstName </a>
     }
 
   <a href='@Url.Action("CreatePatient")'  id="create_patient" class="list-group-item list-group-item-action">Create New Patient</a>

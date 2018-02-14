@@ -7,6 +7,29 @@
 
 <body>Summary Page under construction...</body>
 
+<div>
+    <a>@Model.lastName, @Model.firstName</a>
+    <a>@Model.gender, @Model.age</a>
+    <a>@Model.birthDate</a>
+    <a>Admit Date: @Model.admitDate</a>
+    <a>MRN: @Model.mrn</a>
+    <a>Room: @Model.room</a>
+    <a>Unit: @Model.unit</a>
+    <a>Allergies: @Model.allergies</a>
+    <a>Attending: @Model.attending</a>
+    <a>BMI: @Model.bmi</a>
+    <a>Isolation: @Model.isolation</a>
+    <a>Infection: @Model.infection</a>
+    <a>Code Status: @Model.codeStatus</a>
+    <a>Healthcare Directives: @Model.healthcareDirs</a>
+    <a>Language: @Model.language</a>
+</div>
+
+
+<d>@Model.lastName, @Model.firstName</d>
+<d>MRN: @Model.mrn</d>
+<d>Isolation: @Model.isolation</d>
+<d></d>
 <d>
     @Html.TextAreaFor(model => model.inputData, new { @class = "form-control"})
 </d>

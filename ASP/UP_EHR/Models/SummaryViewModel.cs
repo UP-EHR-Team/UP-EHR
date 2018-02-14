@@ -10,6 +10,9 @@ namespace UP_EHR.Models
         //internet says to store image path here and store actual images in S3 bucket
         public string image { get; set; }
 
+        //calculate this from D.O.B.
+        public string age { get; set; }
+
         //same info included in AssignPatientModel
         //but, we will not be putting this info in the 'summary' table of our DB
         //we'll grab it from the 'patients' table
