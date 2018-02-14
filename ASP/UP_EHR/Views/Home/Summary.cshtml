@@ -24,12 +24,6 @@
     <a>Healthcare Directives: @Model.healthcareDirs</a>
     <a>Language: @Model.language</a>
 </div>
-
-
-<d>@Model.lastName, @Model.firstName</d>
-<d>MRN: @Model.mrn</d>
-<d>Isolation: @Model.isolation</d>
-<d></d>
-<d>
+<div>
     @Html.TextAreaFor(model => model.inputData, new { @class = "form-control"})
-</d>
+</div>
