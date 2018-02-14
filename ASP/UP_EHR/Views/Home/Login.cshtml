@@ -1,10 +1,11 @@
 ﻿@model LoginModel
 
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "UP Electronic Health Record";
 }
 
-<div id="buffer" class="row">
+@RenderPage("~/Views/Shared/_Header.cshtml")
+<!--<div id="buffer" class="row">
     <img class="resize" src='@Url.Content("~/Resources/University_of_Portland_shield.png")' alt="Image" width="100px" height="auto"/>
 </div>
 <div class="row">
@@ -15,8 +16,8 @@
         <h2 class="title">UP Electronic Health Record</h2>
     </div>
     <div class="col-md-2"></div>
-</div>
-<div class="col-md-4"></div>
+</div> -->
+<div class="col-md-4"></div> 
 
 <!--<div class="col-md-4">
     <p id="loginErr">Invalid Login Credentials</p>
@@ -52,7 +53,7 @@
 </div>
 <div class="col-md-4"></div>
 
-<p id="warning">*This software is for educational purposes only, do not enter real patient data</p>
+@RenderPage("~/Views/Shared/_Footer.cshtml")
 
 @section scripts {
     <script type="text/javascript">
