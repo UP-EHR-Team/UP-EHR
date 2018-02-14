@@ -103,7 +103,6 @@
   <ItemGroup>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
@@ -143,6 +142,9 @@
     <Content Include="Resources\TheSansPlain.ttf" />
     <Content Include="Resources\University_of_Portland_shield.png" />
     <Content Include="Views\Home\CreatePatient.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

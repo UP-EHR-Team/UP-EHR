@@ -2,15 +2,11 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
-       
+    <meta charset="utf-8" />
 </head>
 <body>
-	@RenderBody()
-    @RenderSection("scripts", required: false)
-
+	<p id="warning">*This software is for educational purposes only, do not enter real patient data</p>
 </body>
-   
 </html>
