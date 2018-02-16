@@ -24,7 +24,7 @@
             <div class="col-md-4">
                 <div>
                     @Html.Label(" First Name", new { Class="input_lbl"})
-                    @Html.TextBoxFor(model => model.firstName, new {Class="form-control"})
+                    @Html.TextBoxFor(model => model.firstName, new {Class="form-control", @placeholder = "First Name", required = "required"})
                 </div>
                 <div>
                     @Html.Label(" Last Name", new { @class="input_lbl" })
