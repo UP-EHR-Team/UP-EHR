@@ -5,25 +5,42 @@
 }
 
 
-<body>Summary Page under construction...</body>
+<body>
 
-<div>
-    <a>@Model.lastName, @Model.firstName</a>
-    <a>@Model.gender, @Model.age</a>
-    <a>@Model.birthDate</a>
-    <a>Admit Date: @Model.admitDate</a>
-    <a>MRN: @Model.mrn</a>
-    <a>Room: @Model.room</a>
-    <a>Unit: @Model.unit</a>
-    <a>Allergies: @Model.allergies</a>
-    <a>Attending: @Model.attending</a>
-    <a>BMI: @Model.bmi</a>
-    <a>Isolation: @Model.isolation</a>
-    <a>Infection: @Model.infection</a>
-    <a>Code Status: @Model.codeStatus</a>
-    <a>Healthcare Directives: @Model.healthcareDirs</a>
-    <a>Language: @Model.language</a>
+    <div class="row">
+@RenderPage("~/Views/Shared/_PatientOverview.cshtml")
+        </div>
+<!--<div class="row">
+    <ol>
+        <li>@Model.lastName, @Model.firstName</li>
+        <li>@Model.gender, @Model.age</li>
+        <li>@Model.birthDate</li>
+        <li>Admit Date: @Model.admitDate</li>
+        <li>MRN: @Model.mrn</li>
+        <li>Room: @Model.room</li>
+        <li>Unit: @Model.unit</li>
+        <li>Allergies: @Model.allergies</li>
+        <li>Attending: @Model.attending</li>
+        <li>BMI: @Model.bmi</li>
+        <li>Isolation: @Model.isolation</li>
+        <li>Infection: @Model.infection</li>
+        <li>Code Status: @Model.codeStatus</li>
+        <li>Healthcare Directives: @Model.healthcareDirs</li>
+        <li>Language: @Model.language</li>
+    </ol>
+</div>-->
+
+<div id="left_menu" class="col-md-2">
+    <div id="no_padding" class="col-md-12">
+        <div id="pad_bottom" class="row"><a id="left_menu" href="#">Summary</a></div>
+        <div id="spacer" class="col-md-12"></div>
+        <div id="pad_bottom" class="row"><a id="left_menu" href="#">Flow Sheets</a></div>
+        <div id="spacer" class="col-md-12"></div>
+    </div>
 </div>
-<div>
-    @Html.TextAreaFor(model => model.inputData, new { @class = "form-control"})
+<div class="col-md-9">
+    <p id="tab_title" >@ViewBag.Title</p>
 </div>
+
+    </body>
+

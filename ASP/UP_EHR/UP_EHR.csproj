@@ -145,6 +145,17 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_PatientOverview.cshtml" />
+    <Content Include="Resources\OpenSans-Bold.ttf" />
+    <Content Include="Resources\OpenSans-BoldItalic.ttf" />
+    <Content Include="Resources\OpenSans-ExtraBold.ttf" />
+    <Content Include="Resources\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Resources\OpenSans-Italic.ttf" />
+    <Content Include="Resources\OpenSans-Light.ttf" />
+    <Content Include="Resources\OpenSans-LightItalic.ttf" />
+    <Content Include="Resources\OpenSans-Regular.ttf" />
+    <Content Include="Resources\OpenSans-SemiBold.ttf" />
+    <Content Include="Resources\OpenSans-SemiBoldItalic.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />
