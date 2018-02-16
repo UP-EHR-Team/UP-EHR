@@ -7,6 +7,7 @@
 
 <body>
 
+
     <div class="row">
 @RenderPage("~/Views/Shared/_PatientOverview.cshtml")
         </div>
@@ -40,6 +41,24 @@
 </div>
 <div class="col-md-9">
     <p id="tab_title" >@ViewBag.Title</p>
+<!--
+<div>
+    <a>@Model.lastName, @Model.firstName</a>
+    <a>@Model.gender, @Model.age y.o.</a>
+    <a>@Model.birthDate</a>
+    <a>Admit Date: @Model.admitDate</a>
+    <a>MRN: @Model.mrn</a>
+    <a>Room: @Model.room</a>
+    <a>Unit: @Model.unit</a>
+    <a>Allergies: @Model.allergies</a>
+    <a>Attending: @Model.attending</a>
+    <a>BMI: @Model.bmi</a>
+    <a>Isolation: @Model.isolation</a>
+    <a>Infection: @Model.infection</a>
+    <a>Code Status: @Model.codeStatus</a>
+    <a>Healthcare Directives: @Model.healthcareDirs</a>
+    <a>Language: @Model.language</a>
+-->
 </div>
 
     </body>

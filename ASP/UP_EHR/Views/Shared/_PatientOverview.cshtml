@@ -13,7 +13,7 @@
         </div>
         <div  class="col-md-2">
             <div id="p_name" class="row">@Model.lastName, @Model.firstName</div>
-            <div id="p_info" class="row">@Model.gender, @Model.age, @Model.birthDate</div>
+            <div id="p_info" class="row">@Model.gender, @Model.age y.o., @Model.birthDate</div>
             <div id="p_info" class="row">Weight: @Model.weight</div>
         </div>
         
@@ -32,11 +32,10 @@
         <div  class="col-md-3">
             <div id="p_info" class="row">Infection: @Model.infection</div>
             <div id="p_info" class="row">Code Status: @Model.codeStatus</div>
-            <div id="p_info" class="row">Healthcare Directives: @Model.room</div>
+            <div id="p_info" class="row">Healthcare Directives: @Model.healthcareDirs</div>
             <div id="p_info" class="row">Language: @Model.language</div>
         </div>
    </div>
-    
   
 </body>
 </html>
