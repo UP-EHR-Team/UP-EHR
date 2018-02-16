@@ -99,6 +99,7 @@
     <Compile Include="Models\AssignPatientModel.cs" />
     <Compile Include="DatabaseObjects\Patient.cs" />
     <Compile Include="Models\CreatePatientModel.cs" />
+    <Compile Include="DatabaseObjects\DatabaseLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

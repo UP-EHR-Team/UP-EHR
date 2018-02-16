@@ -80,46 +80,10 @@ namespace UP_EHR.Controllers
         public ActionResult Summary(int databaseId)
         {
             var model = new SummaryViewModel();
+            var db_logic = new DatabaseLogic(connection, databaseId);
 
-
-            //DATABASE CONNECTION STUB START //
-            connection.Open();
-            string query = $"SELECT * FROM ehr_patients WHERE idehr_patients = {databaseId}";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            MySqlDataReader dataReader = cmd.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                model.firstName = dataReader.GetString(1);
-                model.lastName = dataReader.GetString(2);
-                model.gender = dataReader.GetString(3);
-                model.birthDate = dataReader.GetString(4);
-                model.weight = dataReader.GetString(5);
-                model.bmi = dataReader.GetString(6);
-                model.unit = dataReader.GetString(7);
-                model.admitDate = dataReader.GetString(8);
-                model.room = dataReader.GetString(9);
-                model.allergies = dataReader.GetString(10);
-                model.attending = dataReader.GetString(11);
-                model.isolation = dataReader.GetString(12);
-                model.infection = dataReader.GetString(13);
-                model.codeStatus = dataReader.GetString(14);
-                model.healthcareDirs = dataReader.GetString(15);
-                model.language = dataReader.GetString(16);
-
-
-                //TODO: Everything below here needs to be put with the correct index in the database
-                model.age = "TEST y.o.";
-
-                //TODO: this line from other table that needs to be built
-                //model.inputData = dataReader.GetString(2);
-
-                //TODO: this line from other table that needs to be built
-                //model.mrn = dataReader.GetString(2);
-
-            }
-            connection.Close();
-            //DATABASE CONNECTION STUB STOP //
+            //get patient data from database into the SummaryViewModel
+            model = db_logic.GetSummaryPatient();
 
             return View(model);
         }
