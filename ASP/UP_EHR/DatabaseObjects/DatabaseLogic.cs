@@ -66,9 +66,14 @@ namespace UP_EHR.DatabaseObjects
                 summaryModel.healthcareDirs = dataReader.GetString(15);
                 summaryModel.language = dataReader.GetString(16);
 
-
-                //TODO: Calculate age based on DOB. This will be easy once DatePicker is implemented
-                summaryModel.age = "TEST y.o.";
+                DateTime birthdate = Convert.ToDateTime(summaryModel.birthDate);
+                DateTime today = DateTime.Today;
+                int calculatedAge = today.Year - birthdate.Year;
+                if (today < birthdate.AddYears(calculatedAge))
+                {
+                    calculatedAge--;
+                }
+                summaryModel.age = calculatedAge.ToString();
 
                 //TODO: this line from other table that needs to be built
                 //summaryModel.inputData = dataReader.GetString(2);

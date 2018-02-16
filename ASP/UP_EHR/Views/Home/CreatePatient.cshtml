@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     @Html.Label(" Birthdate", new { @class="input_lbl" })
-                    @Html.TextBoxFor(model => model.birthDate, new {Class="form-control", @placeholder = "mm/dd/yyyy"})
+                    @Html.TextBoxFor(model => model.birthDate, new {Class="form-control", @type = "date"})
                 </div>
                 <div>
                     @Html.Label(" Weight", new { @class="input_lbl" })
@@ -44,7 +44,7 @@
                 </div>
                 <div>
                     @Html.Label(" Admit Date", new { @class="input_lbl" })
-                    @Html.TextBoxFor(model => model.admitDate, new {Class="form-control", @placeholder = "mm/dd/yyyy"})
+                    @Html.TextBoxFor(model => model.admitDate, new {Class="form-control", @type = "date"})
                 </div>
                 <div>
                     @Html.Label(" Room", new { @class="input_lbl" })

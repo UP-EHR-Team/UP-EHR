@@ -1,4 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace UP_EHR.Models
 {
     public class CreatePatientModel
