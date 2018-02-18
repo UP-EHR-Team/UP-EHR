@@ -35,12 +35,13 @@
     <div id="no_padding" class="col-md-12">
         <div id="pad_bottom" class="row"><a id="left_menu" href="#">Summary</a></div>
         <div id="spacer" class="col-md-12"></div>
-        <div id="pad_bottom" class="row"><a id="left_menu" href="#">Flow Sheets</a></div>
+        <div id="pad_bottom" class="row"><a id="left_menu" href="FlowSheets">Flow Sheets</a></div>
         <div id="spacer" class="col-md-12"></div>
     </div>
 </div>
 <div class="col-md-9">
     <p id="tab_title" >@ViewBag.Title</p>
+        <div>@Html.TextAreaFor(model => model.inputData, new {Class="form-control"})</div>
 <!--
 <div>
     <a>@Model.lastName, @Model.firstName</a>

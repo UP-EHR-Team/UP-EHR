@@ -5,7 +5,7 @@ namespace UP_EHR.Models
     {
         //grab this data from 'summary' table
         public string inputData { get; set; }
-        public string mrn { get; set; }
+        public int mrn { get; set; }
 
         //internet says to store image path here and store actual images in S3 bucket
         public string image { get; set; }

@@ -65,6 +65,7 @@ namespace UP_EHR.DatabaseObjects
                 summaryModel.codeStatus = dataReader.GetString(14);
                 summaryModel.healthcareDirs = dataReader.GetString(15);
                 summaryModel.language = dataReader.GetString(16);
+                summaryModel.mrn = dataReader.GetInt32(17);
 
                 DateTime birthdate = Convert.ToDateTime(summaryModel.birthDate);
                 DateTime today = DateTime.Today;
@@ -136,12 +137,50 @@ namespace UP_EHR.DatabaseObjects
             //once successful, go to AssignPatient screen, as seen in Functional Spec Flow Chart
             connection.Open();
 
+            //Finds a random MRN that's not already in the database assigned to another patient
+            //assigns that MRN to the new patient
+            string randomizeMrn = "SELECT FLOOR(RAND() * 9000000 + 1000000) AS random_num FROM ehr_patients WHERE 'mrn' NOT IN (SELECT mrn FROM ehr_patients) LIMIT 1";
+            MySqlCommand cmd1 = new MySqlCommand(randomizeMrn, connection);
+            MySqlDataReader dataReader = cmd1.ExecuteReader();
+            int random_mrn = 0;
+            while(dataReader.Read())
+            {
+                random_mrn = dataReader.GetInt32(0);
+            }
+            model.mrn = random_mrn;
+
+            connection.Close();
+
+
+            connection.Open();
             //generate mysql query with data stored in model
-            string query = $"INSERT INTO ehr_patients (first_name, last_name, gender, birthdate, weight, bmi, unit, admit_date, room, allergies, attending, isolation, infection, code_status, healthcare_directives, language) VALUES ('{model.firstName}', '{model.lastName}', '{model.gender}', '{model.birthDate}', '{model.weight}', '{model.bmi}', '{model.unit}', '{model.admitDate}', '{model.room}', '{model.allergies}', '{model.attending}', '{model.isolation}', '{model.infection}', '{model.codeStatus}', '{model.healthcareDirs}', '{model.language}')";
+            string query = $"INSERT INTO ehr_patients (first_name, last_name, gender, birthdate, weight, bmi, unit, admit_date, room, allergies, attending, isolation, infection, code_status, healthcare_directives, language, mrn) VALUES ('{model.firstName}', '{model.lastName}', '{model.gender}', '{model.birthDate}', '{model.weight}', '{model.bmi}', '{model.unit}', '{model.admitDate}', '{model.room}', '{model.allergies}', '{model.attending}', '{model.isolation}', '{model.infection}', '{model.codeStatus}', '{model.healthcareDirs}', '{model.language}', '{model.mrn}')";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             //run query and insert data into the database
             cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void DeleteAllRows(string tableName)
+        {
+            string query = $"TRUNCATE TABLE {tableName}";
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+
+
+        }
+
+        public void AddTableColumns()
+        {
+            connection.Open();
+
+            //example command, mimic this
+            //string query = $"ALTER TABLE ehr_patients ADD mrn text";
+            //MySqlCommand cmd = new MySqlCommand(query, connection);
+            //cmd.ExecuteNonQuery();
+
             connection.Close();
         }
     }
