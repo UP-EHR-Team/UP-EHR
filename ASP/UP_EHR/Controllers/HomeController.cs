@@ -8,6 +8,7 @@ using UP_EHR.Models;
 using UP_EHR.DatabaseObjects;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Web.SessionState;
 
 namespace UP_EHR.Controllers
 {
@@ -71,6 +72,8 @@ namespace UP_EHR.Controllers
             var db_logic = new DatabaseLogic(connection, databaseId);
             model = db_logic.GetSummaryData();
 
+            Session["patientId"] = databaseId;
+
             return View(model);
         }
 
@@ -80,9 +83,11 @@ namespace UP_EHR.Controllers
             return View();
         }
 
-        public ActionResult FlowSheets()
+        [HttpGet]
+        public ActionResult FlowSheets(FlowSheetsModel model)
         {
-            return View();
+            model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
+            return View(model);
         }
 
         [HttpGet]
@@ -108,6 +113,15 @@ namespace UP_EHR.Controllers
             db_logic.PostCreatePatientData(model);
 
             return RedirectToAction("AssignPatient");
+        }
+
+        [ChildActionOnly]
+        public ActionResult _PatientOverview() 
+        {
+            int id = Convert.ToInt32(Session["patientId"].ToString());
+            var db_logic = new DatabaseLogic(connection, id);
+            var model = db_logic.GetSummaryData();
+            return PartialView(model);
         }
     }
 }

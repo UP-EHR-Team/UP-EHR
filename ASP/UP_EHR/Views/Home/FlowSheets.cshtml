@@ -1,14 +1,24 @@
-﻿@{
-    Layout = null;
+﻿@model FlowSheetsModel
+
+@{
+    ViewBag.Title = "Flow Sheets";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>FlowSheets</title>
-</head>
 <body>
-        Welcome to Flow Sheets
+
+
+        <div>
+             @{ Html.RenderAction("_PatientOverview", "Home"); }
+
+        </div>
+
+<div id="left_menu" class="col-md-2">
+    <div id="no_padding" class="col-md-12">
+        <div id="pad_bottom" class="row"><a id="left_menu" href='@Url.Action("Summary", new { databaseId = @Model.databaseId } )'>Summary</a></div>
+        <div id="spacer" class="col-md-12"></div>
+        <div id="pad_bottom" class="row"><a id="left_menu" href="#">Flow Sheets</a></div>
+        <div id="spacer" class="col-md-12"></div>
+    </div>
+</div>
 </body>
-</html>
 
