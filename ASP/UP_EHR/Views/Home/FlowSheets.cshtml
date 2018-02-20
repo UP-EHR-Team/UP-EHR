@@ -11,14 +11,17 @@
              @{ Html.RenderAction("_PatientOverview", "Home"); }
 
         </div>
-
-<div id="left_menu" class="col-md-2">
+        @RenderPage("~/Views/Shared/_NavigationPane.cshtml")
+        <div class="col-md-9">
+            <p id="tab_title" >@ViewBag.Title</p>
+        </div>>
+<!--<div id="left_menu" class="col-md-2">
     <div id="no_padding" class="col-md-12">
         <div id="pad_bottom" class="row"><a id="left_menu" href='@Url.Action("Summary", new { databaseId = @Model.databaseId } )'>Summary</a></div>
         <div id="spacer" class="col-md-12"></div>
-        <div id="pad_bottom" class="row"><a id="left_menu" href="#">Flow Sheets</a></div>
+        <div id="pad_bottom" class="row"><a id="left_menu" href="FlowSheets">Flow Sheets</a></div>
         <div id="spacer" class="col-md-12"></div>
     </div>
-</div>
+</div>-->
 </body>
 

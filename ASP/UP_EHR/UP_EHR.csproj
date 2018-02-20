@@ -158,6 +158,7 @@
     <Content Include="Resources\OpenSans-Regular.ttf" />
     <Content Include="Resources\OpenSans-SemiBold.ttf" />
     <Content Include="Resources\OpenSans-SemiBoldItalic.ttf" />
+    <Content Include="Views\Shared\_NavigationPane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />
