@@ -5,11 +5,12 @@
 
 body {
     font-family: myFirstFont, Verdana, Tahoma;
-    height: 100%;
+    height: 100%
     /*background-color: #7fb0cd*/
 }
+
 html {
-    height:100%;
+    height: 100%
 }
 
 h1.login, h2.login, h2.title {
@@ -22,8 +23,7 @@ h1.login, h2.login, h2.title {
 
 .input_lbl {
     color: #1E1656;
-    font-family: myFirstFont, Verdana, Tahoma;
-
+    font-family: myFirstFont, Verdana, Tahoma
 }
 
 p {
@@ -37,18 +37,18 @@ p {
 .errorMsg {
     color: #ff0000
 }
+
 #LoginTitle {
     width: 100%;
-
     align-content: center
 }
+
 #warning {
     color: red;
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center
-
 }
 
 #login_btn {
@@ -58,29 +58,29 @@ p {
     float: left;
     font-family: myFirstFont
 }
+
 #buffer {
-    margin: 10px;
+    margin: 10px
 }
+
 #ctr {
     padding-left: 0px;
     align-content: center
 }
 
 .resize {
-    align-content: center;
-
+    align-content: center
 }
+
 .list-group {
-   
     padding-right: 0px
-
 }
+
 .list-group-item.active {
     background-color: #1E1656;
-    border-color: #1E1656;
-
-
+    border-color: #1E1656
 }
+
 a:hover {
     color: grey
 }
@@ -102,33 +102,32 @@ a:hover {
 #right {
     padding-top: 10px;
     padding-left: 0px;
-    padding-right: 0px;
-
+    padding-right: 0px
 }
 
 #create_patient {
-    background-color: lightgray;
-
+    background-color: lightgray
 }
+
 a#create_patient:hover {
     background-color: #1E1656;
     color: white
 }
 
 #ap_title {
-    font-size: 20px;
-   
+    font-size: 20px
 }
+
 a#ap_title:hover {
     background-color: #1E1656;
     color: white
-
 }
 
 #tab_title {
     color: #1E1656;
     font-size: 30px;
     padding-top: 1%;
+    padding-left: 1%
 }
 
 #p_name {
@@ -148,7 +147,6 @@ a#ap_title:hover {
     padding-left: 5px;
     background-color: #ebeff2;
     color: #1E1656
-
 }
 
 div#left_menu {
@@ -156,39 +154,66 @@ div#left_menu {
     background-color: #5E6A71;
     height: 100%;
     width: 20%;
-    text-align:center
+    text-align: center
 }
+
 a#left_menu {
     margin: 20px;
     color: white;
     text-align: center;
-    display:block;
+    display: block;
     height: 100%;
-    font-size: 20px;
+    font-size: 20px
 }
+
 #pad_bottom {
-    display:block;
+    display: block;
     height: 100%
 }
+
 #spacer {
     padding: 1px;
     background-color: #ebeff2;
     width: 100%
 }
+
 #white {
     background-color: white;
-    padding-left: 20px;
+    padding-left: 20px
 }
+
 #purple {
     background-color: #1E1656;
-    padding-left: 20px;
-
+    padding-left: 20px
 }
+
 .pad_top {
     padding-top: 1%;
     padding-left: 3%;
     align-content: center
 }
+
 #no_padding {
-    padding: 0px;
+    padding: 0px
+}
+
+#pad_left {
+    padding-left: 10%;
+    padding-bottom: 3%
+}
+
+#s_input {
+    border: 0;
+    box-shadow: none;
+    color: black;
+    justify-content: space-around
+}
+
+#s_textbox {
+    padding-top: 1%;
+    height: 200px
+}
+
+.s_name {
+    font-size: 20px
 }
