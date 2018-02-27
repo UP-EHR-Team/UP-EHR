@@ -20,12 +20,22 @@
         <div id="spacer" class="col-md-12"></div>
     </div>
 </div>
+    
 
-
-<div class="col-md-9"><div class="row"><p id="tab_title" >@ViewBag.Title</p></div></div>
+<div class="col-md-9" padding="10%"><div class="row" id="pad_left3"><p id="tab_title" >@ViewBag.Title</p></div></div>
 <div class="col-md-9">
-    <div class="row">
-    <div class="col-md-2"><img src='@Url.Content("~/Resources/PatientImage.png")' alt="Image" width="90%" height="auto"></div>
+    <div class="row" >
+        
+        <div class="col-md-2" id="pad_left2">
+            <div class="row">
+                <img src='@Url.Content("~/Resources/PatientImage.png")' alt="Image" width="90%" height="auto">
+            </div>
+            <div class="row">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file"/>
+                </form>
+            </div>
+        </div>
 
     <div class="col-md-2">
         <div id="pad_left" class="row s_name"><b><input id="s_input" disabled="true" value='@Model.lastName, @Model.firstName'></b></div>
@@ -52,7 +62,7 @@
         </div>
 <div class="row">
     <div id="s_textbox" class="col-md-7 ">
-        @Html.TextAreaFor(model => model.inputData, new {Class="form-control", id="s_textbox"})
+        @Html.TextAreaFor(model => model.inputData, new {Class="form-control", id="s_textbox "})
     </div>
 </div>
 

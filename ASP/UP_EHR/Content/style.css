@@ -211,9 +211,20 @@ a#left_menu {
 
 #s_textbox {
     padding-top: 1%;
+    padding-left: 2%;
     height: 200px
 }
 
 .s_name {
     font-size: 20px
+}
+
+#pad_left2 {
+    padding-left: 2%;
+    margin-left: 2%;
+}
+#pad_left3 {
+    padding-left: 1%;
+
+
 }

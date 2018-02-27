@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls;
 namespace UP_EHR.Models
 {
     public class SummaryViewModel
@@ -32,5 +33,7 @@ namespace UP_EHR.Models
         public string codeStatus { get; set; }
         public string healthcareDirs { get; set; }
         public string language { get; set; }
+
+
     }
 }

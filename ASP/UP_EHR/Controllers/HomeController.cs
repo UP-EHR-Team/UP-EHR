@@ -9,6 +9,7 @@ using UP_EHR.DatabaseObjects;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Web.SessionState;
+using System.IO;
 
 namespace UP_EHR.Controllers
 {
@@ -78,8 +79,18 @@ namespace UP_EHR.Controllers
         }
 
         [HttpPost]
-        public ActionResult Summary(SummaryViewModel model)
+        public ActionResult Summary(HttpPostedFileBase file)
         {
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                file.SaveAs(path);
+                //SummaryViewModel svm 
+            }
+
+            //return RedirectToAction("Summary");
+
             return View();
         }
 
@@ -123,5 +134,7 @@ namespace UP_EHR.Controllers
             var model = db_logic.GetSummaryData();
             return PartialView(model);
         }
+
+
     }
 }
