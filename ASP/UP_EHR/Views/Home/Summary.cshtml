@@ -31,7 +31,7 @@
                 <img src='@Url.Content("~/Resources/PatientImage.png")' alt="Image" width="90%" height="auto">
             </div>
             <div class="row">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="SummaryImage" method="post" enctype="multipart/form-data">
                     <input type="file" name="file" id="file"/>
                 </form>
             </div>
@@ -62,8 +62,11 @@
         </div>
 <div class="row">
     <div id="s_textbox" class="col-md-7 ">
-        @Html.TextAreaFor(model => model.inputData, new {Class="form-control", id="s_textbox "})
-    </div>
+            @using(Html.BeginForm("Summary", "Home", FormMethod.Post)) {
+                @Html.TextAreaFor(model => model.inputData, new {Class="form-control", id="s_textbox "})
+                <input class="btn btn-primary" type="submit" value="Submit" />
+            }
+     </div>
 </div>
 
     </body>

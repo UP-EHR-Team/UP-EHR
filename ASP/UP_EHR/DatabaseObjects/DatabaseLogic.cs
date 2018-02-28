@@ -66,6 +66,7 @@ namespace UP_EHR.DatabaseObjects
                 summaryModel.healthcareDirs = dataReader.GetString(15);
                 summaryModel.language = dataReader.GetString(16);
                 summaryModel.mrn = dataReader.GetInt32(17);
+                summaryModel.inputData = dataReader.IsDBNull(18) ? "" : dataReader.GetString(18);
 
                 DateTime birthdate = Convert.ToDateTime(summaryModel.birthDate);
                 DateTime today = DateTime.Today;
@@ -75,12 +76,6 @@ namespace UP_EHR.DatabaseObjects
                     calculatedAge--;
                 }
                 summaryModel.age = calculatedAge.ToString();
-
-                //TODO: this line from other table that needs to be built
-                //summaryModel.inputData = dataReader.GetString(2);
-
-                //TODO: this line from other table that needs to be built
-                //summaryModel.mrn = dataReader.GetString(2);
 
             }
             connection.Close();
@@ -158,6 +153,15 @@ namespace UP_EHR.DatabaseObjects
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             //run query and insert data into the database
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void PostSummaryInputData(SummaryViewModel model)
+        {
+            connection.Open();
+            string query = $"UPDATE ehr_patients SET input_data = \"{model.inputData}\" WHERE idehr_patients = {databaseId}";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.ExecuteNonQuery();
             connection.Close();
         }
