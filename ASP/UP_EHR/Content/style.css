@@ -228,3 +228,14 @@ a#left_menu {
 
 
 }
+
+.fs_col {
+    -webkit-column-width: 100px; /* Chrome, Safari, Opera */
+    -moz-column-width: 100px; /* Firefox */
+    column-width: 100px
+
+}
+
+.go {
+    width: 10px;
+}
