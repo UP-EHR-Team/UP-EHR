@@ -90,7 +90,7 @@ namespace UP_EHR.Controllers
             //TODO: tmacnary, this puts the correct data into the correct row, but the model doesn't have the right values besides that,
             //so upon completion, all other data is lost until reloading summary page. Figure out how to call httpget summary here with providing
             //the correct DB_ID.
-            return RedirectToAction("Summary", db_id);
+            return RedirectToAction("Summary", new { databaseId = db_id});
 
             //return View(model); 
         }
