@@ -9,6 +9,14 @@ body {
     /*background-color: #7fb0cd*/
 }
 
+th, td {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    width:105px;
+
+}
+
 html {
     height: 100%
 }
@@ -51,7 +59,7 @@ p {
     text-align: center
 }
 
-#login_btn {
+#login_btn, #sub_btn {
     background-color: #5E6A71;
     border-color: #5E6A71;
     margin-top: 10px;
@@ -238,4 +246,12 @@ a#left_menu {
 
 .go {
     width: 10px;
+}
+
+input.fs {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box
+
 }
