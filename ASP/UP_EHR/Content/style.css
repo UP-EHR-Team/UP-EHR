@@ -64,7 +64,36 @@ p {
     border-color: #5E6A71;
     margin-top: 10px;
     float: left;
-    font-family: myFirstFont
+    font-family: myFirstFont;
+    margin-right: 10px;
+}
+
+#fwd_btn {
+    background-image: url('../Resources/fwd_arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #5E6A71;
+    border-color: #5E6A71;
+    margin-top: 10px;
+    float: left;
+    font-family: myFirstFont;
+    margin-right: 10px;
+    width: 50px;
+    height: 40px
+
+}
+#back_btn {
+    background-image: url('../Resources/back_arrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #5E6A71;
+    border-color: #5E6A71;
+    margin-top: 10px;
+    float: left;
+    font-family: myFirstFont;
+    margin-right: 10px;
+    width: 50px;
+    height: 40px
 }
 
 #buffer {
@@ -92,6 +121,11 @@ p {
 a:hover {
     color: grey
 }
+#back_btn:hover, #fwd_btn:hover {
+    background-color: gray;
+    border-color: grey
+}
+
 
 .new-patient {
     color: #1E1656;
