@@ -109,9 +109,56 @@ namespace UP_EHR.Controllers
         [HttpGet]
         public ActionResult FlowSheets(FlowSheetsModel model)
         {
+            //FlowSheetsModel model = new FlowSheetsModel();
             model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
+            //try {
+                if ((Session["fs_am"]) == null)
+                {
+                    model.curDate = DateTime.Today.Date;
+
+                    Session["fs_date"] = model.curDate;
+                    Session["fs_am"] = model.am;
+                    if (DateTime.Now.Hour < 12)
+                    {
+                        model.am = true;
+                    //model.displayTimes = model.amTimes;
+                    string[] hi = new string[12];
+                    model.displayTimes = hi;
+                        for (int i = 0; i < model.displayTimes.Length; i++)
+                        {
+                            model.displayTimes[i] = model.amTimes[i];
+                        }
+                    }
+                    else
+                    {
+                        model.am = false;
+                        //model.displayTimes = model.pmTimes;
+                        model.displayTimes = new string[12];
+                        for (int i = 0; i < model.displayTimes.Length; i++)
+                        {
+                            model.displayTimes[i] = model.pmTimes[i];
+                        }
+                    }
+                }
+            else {
+                model.am = Convert.ToBoolean(Session["fs_am"]);
+                model.curDate = Convert.ToDateTime(Session["fs_date"]);
+            }
+            //}catch(NullReferenceException e){
+                
+            //}
+
+
+
+
+            //string[] amTimes 
+            //string[] pmTimes 
+            //model.amTimes = amTimes;
+            //model.pmTimes = pmTimes;
+
             return View(model);
         }
+
 
         [HttpGet]
         public ActionResult AssignPatient()
@@ -147,6 +194,37 @@ namespace UP_EHR.Controllers
             return PartialView(model);
         }
 
+        //[ChildActionOnly]
+        public ActionResult _FlowSheets(FlowSheetsModel model)
+        {
+            return PartialView(model);
+        }
+
+        //[HttpPost]
+        public ActionResult _FSForward(FlowSheetsModel model)
+        {
+            DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool am = Convert.ToBoolean(Session["fs_am"]);
+            model.am = am;
+            model.curDate = curDate;
+            model.forwardTime();
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+            return RedirectToAction("FlowSheets", model);
+        }
+
+        //[HttpPost]
+        public ActionResult _FSBackward(FlowSheetsModel model)
+        {
+            DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool am = Convert.ToBoolean(Session["fs_am"]);
+            model.curDate = curDate;
+            model.am = am;
+            model.backwardTime();
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+            return RedirectToAction("FlowSheets", model);
+        }
 
     }
 }

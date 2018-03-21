@@ -1,21 +1,23 @@
-﻿<div class="col-md-9">
+﻿@model FlowSheetsModel
+
+<div class="col-md-9">
 <table class="table table-striped table-bordered">
     <thead id="flowsheets_head">
         <tr>
-            <th id="date"><b>@DateTime.Today.Date.ToString("MM-dd-yyyy")</b></th>
-            <th class="times">00:00</th>
-            <th class="times">01:00</th>
-            <th class="times">02:00</th>
-            <th class="times">03:00</th>
-            <th class="times">04:00</th>
-            <th class="times">05:00</th>
-            <th class="times">06:00</th>
-            <th class="times">07:00</th>
-            <th class="times">08:00</th>
-            <th class="times">09:00</th>
-            <th class="times">10:00</th>
-            <th class="times">11:00</th>
-            <th class="times">12:00</th>    
+            <th id="date"><b>@Model.curDate.ToString("MM-dd-yyyy")</b></th>
+            <th class="times">@if (@Model.am){@Model.amTimes[0]}else {@Model.pmTimes[0]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[1]}else {@Model.pmTimes[1]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[2]}else {@Model.pmTimes[2]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[3]}else {@Model.pmTimes[3]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[4]}else {@Model.pmTimes[4]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[5]}else {@Model.pmTimes[5]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[6]}else {@Model.pmTimes[6]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[7]}else {@Model.pmTimes[7]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[8]}else {@Model.pmTimes[8]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[9]}else {@Model.pmTimes[9]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[10]}else {@Model.pmTimes[10]}</th>
+            <th class="times">@if (@Model.am){@Model.amTimes[11]}else {@Model.pmTimes[11]}</th>
+    
         </tr>
     </thead>
     <tbody>
@@ -33,7 +35,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>pulse</th>
@@ -49,7 +51,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+  
         </tr>
         <tr>
             <th>temp</th>
@@ -65,7 +67,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>respirations</th>
@@ -81,7 +83,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>Sp02</th>
@@ -97,7 +99,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>rr</th>
@@ -113,7 +115,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>quality</th>
@@ -129,7 +131,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>MAP</th>
@@ -145,7 +147,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>IV</th>
@@ -161,7 +163,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>Oral Intake</th>
@@ -177,7 +179,7 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
         <tr>
             <th>UOP</th>
@@ -193,13 +195,30 @@
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
             <td><input class="fs" type="text"></td>
-            <td><input class="fs" type="text"></td>
+
         </tr>
     </tbody>
 
 </table>
 </div>
 <div class="col-md-4">
-    <input class="btn btn-primary" id="back_btn" type="submit" value="" />
-    <input class="btn btn-primary" id="fwd_btn" type="submit" value="" />
+    <input class="btn btn-primary" id="back_btn" type="submit" value=""/>
+    <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>
+    @Ajax.ActionLink("Forward", "_FSForward", "Home", 
+
+    new AjaxOptions
+    {
+        UpdateTargetId = "fs_partialView",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    })
+
+    @Ajax.ActionLink("Backward", "_FSBackward", "Home", 
+
+    new AjaxOptions
+    {
+        UpdateTargetId = "fs_partialView",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    })
 </div>
