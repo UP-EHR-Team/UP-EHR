@@ -14,6 +14,11 @@ th, td {
     margin: 0px;
     padding: 0px;
     width:105px;
+    font-size:18px;
+}
+
+th.times {
+    text-align: center;
 
 }
 
@@ -121,9 +126,9 @@ p {
 a:hover {
     color: grey
 }
-#back_btn:hover, #fwd_btn:hover {
-    background-color: gray;
-    border-color: grey
+#back_btn:hover, #fwd_btn:hover, #login_btn:hover, #sub_btn:hover {
+    background-color: #1E1656;
+    border-color: #1E1656
 }
 
 
@@ -288,4 +293,13 @@ input.fs {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box
 
+}
+th#date {
+    font-size: 23px;
+    width:15%;
+}
+
+#flowsheets_head {
+    background-color: #5E6A71;
+    color: white
 }
