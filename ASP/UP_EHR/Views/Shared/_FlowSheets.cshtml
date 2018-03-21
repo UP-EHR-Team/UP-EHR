@@ -202,16 +202,8 @@
 </table>
 </div>
 <div class="col-md-4">
-    <input class="btn btn-primary" id="back_btn" type="submit" value=""/>
-    <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>
-    @Ajax.ActionLink("Forward", "_FSForward", "Home", 
-
-    new AjaxOptions
-    {
-        UpdateTargetId = "fs_partialView",
-        InsertionMode = InsertionMode.Replace,
-        HttpMethod = "GET"
-    })
+    <!--<input class="btn btn-primary" id="back_btn" type="submit" value=""/>
+    <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>-->
 
     @Ajax.ActionLink("Backward", "_FSBackward", "Home", 
 
@@ -221,4 +213,15 @@
         InsertionMode = InsertionMode.Replace,
         HttpMethod = "GET"
     })
+    
+    @Ajax.ActionLink("Forward", "_FSForward", "Home", 
+
+    new AjaxOptions
+    {
+        UpdateTargetId = "fs_partialView",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    })
+
+
 </div>
