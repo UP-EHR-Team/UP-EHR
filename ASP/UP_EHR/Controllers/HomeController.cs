@@ -69,11 +69,18 @@ namespace UP_EHR.Controllers
         [HttpGet]
         public ActionResult Summary(int databaseId)
         {
+            /*var model = new SummaryViewModel();
+            var db_logic = new DatabaseLogic(connection, databaseId);
+            model = db_logic.GetSummaryData();
+
+            Session["patientId"] = databaseId;*/
             var model = new SummaryViewModel();
             var db_logic = new DatabaseLogic(connection, databaseId);
             model = db_logic.GetSummaryData();
 
             Session["patientId"] = databaseId;
+            Session["mrn"] = model.mrn;
+
 
             return View(model);
         }
@@ -107,40 +114,44 @@ namespace UP_EHR.Controllers
         }
 
         [HttpGet]
-        public ActionResult FlowSheets(FlowSheetsModel model)
+        public ActionResult FlowSheets(/*FlowSheetsModel model*/)
         {
-            //FlowSheetsModel model = new FlowSheetsModel();
-            model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
+            FlowSheetsModel model = new FlowSheetsModel();
+            //model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
             //try {
-                if ((Session["fs_am"]) == null)
-                {
-                    model.curDate = DateTime.Today.Date;
+            var db_logic = new DatabaseLogic(connection);
+            string patient_mrn = Session["mrn"].ToString();
+            model = db_logic.GetFlowSheetsInputData(patient_mrn);
+            if ((Session["fs_am"]) == null)
+            {
+                model.curDate = DateTime.Today.Date;
 
-                    Session["fs_date"] = model.curDate;
-                    Session["fs_am"] = model.am;
-                    if (DateTime.Now.Hour < 12)
-                    {
-                        model.am = true;
+                Session["fs_date"] = model.curDate;
+                Session["fs_am"] = model.am;
+                if (DateTime.Now.Hour < 12)
+                {
+                    model.am = true;
                     //model.displayTimes = model.amTimes;
                     string[] hi = new string[12];
                     model.displayTimes = hi;
-                        for (int i = 0; i < model.displayTimes.Length; i++)
-                        {
-                            model.displayTimes[i] = model.amTimes[i];
-                        }
-                    }
-                    else
+                    for (int i = 0; i < model.displayTimes.Length; i++)
                     {
-                        model.am = false;
-                        //model.displayTimes = model.pmTimes;
-                        model.displayTimes = new string[12];
-                        for (int i = 0; i < model.displayTimes.Length; i++)
-                        {
-                            model.displayTimes[i] = model.pmTimes[i];
-                        }
+                        model.displayTimes[i] = model.amTimes[i];
+                    }
+                } 
+                else
+                {                       
+                    model.am = false;                       
+                    //model.displayTimes = model.pmTimes;
+                    model.displayTimes = new string[12];
+                    for (int i = 0; i < model.displayTimes.Length; i++)                    
+                    {                   
+                        model.displayTimes[i] = model.pmTimes[i];
                     }
                 }
-            else {
+            }
+            else 
+            {
                 model.am = Convert.ToBoolean(Session["fs_am"]);
                 model.curDate = Convert.ToDateTime(Session["fs_date"]);
             }

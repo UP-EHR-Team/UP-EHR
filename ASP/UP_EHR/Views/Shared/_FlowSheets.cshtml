@@ -205,23 +205,25 @@
     <!--<input class="btn btn-primary" id="back_btn" type="submit" value=""/>
     <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>-->
 
-    @Ajax.ActionLink("Backward", "_FSBackward", "Home", 
+    @Ajax.ActionLink(" ", "_FSBackward", "Home", 
 
-    new AjaxOptions
+    new AjaxOptions()
     {
         UpdateTargetId = "fs_partialView",
         InsertionMode = InsertionMode.Replace,
         HttpMethod = "GET"
-    })
+    },
+    new { @class = "btn btn-default", id="back_btn" })
     
-    @Ajax.ActionLink("Forward", "_FSForward", "Home", 
+    @Ajax.ActionLink(" ", "_FSForward", "Home", 
 
-    new AjaxOptions
+    new AjaxOptions()
     {
         UpdateTargetId = "fs_partialView",
         InsertionMode = InsertionMode.Replace,
         HttpMethod = "GET"
-    })
+    },
+    new { @class = "btn btn-default", id="fwd_btn" })
 
 
 </div>
