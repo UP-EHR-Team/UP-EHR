@@ -114,62 +114,86 @@ namespace UP_EHR.Controllers
         }
 
         [HttpGet]
-        public ActionResult FlowSheets(/*FlowSheetsModel model*/)
+        public ActionResult FlowSheets()
         {
-            FlowSheetsModel model = new FlowSheetsModel();
+            //no longer uses databaseID
+            //uses the mrn stored in session variable during the summary page GET
+
             //model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
-            //try {
+            var model = new FlowSheetsModel();
+
             var db_logic = new DatabaseLogic(connection);
             string patient_mrn = Session["mrn"].ToString();
-            model = db_logic.GetFlowSheetsInputData(patient_mrn);
+
+
+            model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
+
             if ((Session["fs_am"]) == null)
             {
                 model.curDate = DateTime.Today.Date;
-
+                if (model.am)
+                {
+                    model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.amTimes[0].Substring(0, 2);
+                }
+                else
+                {
+                    model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.pmTimes[0].Substring(0, 2);
+                }
                 Session["fs_date"] = model.curDate;
                 Session["fs_am"] = model.am;
+                model = db_logic.GetFlowSheetsInputData(patient_mrn, model);
                 if (DateTime.Now.Hour < 12)
                 {
                     model.am = true;
                     //model.displayTimes = model.amTimes;
-                    string[] hi = new string[12];
-                    model.displayTimes = hi;
+                    string[] temp = new string[12];
+                    model.displayTimes = temp;
                     for (int i = 0; i < model.displayTimes.Length; i++)
                     {
                         model.displayTimes[i] = model.amTimes[i];
                     }
-                } 
+                }
                 else
-                {                       
-                    model.am = false;                       
+                {
+                    model.am = false;
                     //model.displayTimes = model.pmTimes;
                     model.displayTimes = new string[12];
-                    for (int i = 0; i < model.displayTimes.Length; i++)                    
-                    {                   
+                    for (int i = 0; i < model.displayTimes.Length; i++)
+                    {
                         model.displayTimes[i] = model.pmTimes[i];
                     }
                 }
             }
-            else 
+            else
             {
                 model.am = Convert.ToBoolean(Session["fs_am"]);
                 model.curDate = Convert.ToDateTime(Session["fs_date"]);
+                if (model.am)
+                {
+                    model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.amTimes[0].Substring(0, 2);
+                }
+                else
+                {
+                    model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.pmTimes[0].Substring(0, 2);
+                }
+                model = db_logic.GetFlowSheetsInputData(patient_mrn, model);
             }
-            //}catch(NullReferenceException e){
-                
-            //}
 
-
-
-
-            //string[] amTimes 
-            //string[] pmTimes 
-            //model.amTimes = amTimes;
-            //model.pmTimes = pmTimes;
 
             return View(model);
         }
 
+        /*
+        [HttpPost]
+        public ActionResult FlowSheets(FlowSheetsModel model)
+        {
+            var db_logic = new DatabaseLogic(connection);
+            var patient_mrn = Session["mrn"].ToString();
+            db_logic.PostFlowSheetsData(model, patient_mrn);
+
+            return RedirectToAction("FlowSheets");
+        }
+        */
 
         [HttpGet]
         public ActionResult AssignPatient()
