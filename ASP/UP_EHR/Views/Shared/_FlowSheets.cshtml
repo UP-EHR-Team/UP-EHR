@@ -1,6 +1,8 @@
 ﻿@model FlowSheetsModel
 
 <div class="col-md-9">
+    @using(Html.BeginForm("SaveFlowsheets", "Home", FormMethod.Post))
+    {
 <table class="table table-striped table-bordered">
     <thead id="flowsheets_head">
         <tr>
@@ -23,183 +25,187 @@
     <tbody>
         <tr>
             <th>bp</th>
-            <td><input class="fs" type="text" value='@Model.bp[0]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[1]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[2]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[3]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[4]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[5]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[6]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[7]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[8]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[9]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[10]'></td>
-            <td><input class="fs" type="text" value='@Model.bp[11]'></td>
+            <td>@Html.TextBoxFor(model => model.bp[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.bp[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>pulse</th>
-            <td><input class="fs" type="text" value='@Model.pulse[0]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[1]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[2]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[3]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[4]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[5]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[6]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[7]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[8]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[9]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[10]'></td>
-            <td><input class="fs" type="text" value='@Model.pulse[11]'></td>
+            <td>@Html.TextBoxFor(model => model.pulse[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.pulse[11], new {Class="fs"})</td>
   
         </tr>
         <tr>
-            <th>temp</th>
-            <td><input class="fs" type="text" value='@Model.temp[0]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[1]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[2]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[3]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[4]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[5]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[6]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[7]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[8]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[9]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[10]'></td>
-            <td><input class="fs" type="text" value='@Model.temp[11]'></td>
+            <th>temp</th> <!--  -->
+            <td>@Html.TextBoxFor(model => model.temp[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.temp[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>respirations</th>
-            <td><input class="fs" type="text" value='@Model.respirations[0]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[1]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[2]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[3]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[4]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[5]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[6]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[7]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[8]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[9]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[10]'></td>
-            <td><input class="fs" type="text" value='@Model.respirations[11]'></td>
+            <td>@Html.TextBoxFor(model => model.respirations[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.respirations[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>SpO2</th>
-            <td><input class="fs" type="text" value='@Model.spo2[0]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[1]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[2]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[3]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[4]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[5]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[6]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[7]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[8]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[9]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[10]'></td>
-            <td><input class="fs" type="text" value='@Model.spo2[11]'></td>
+            <td>@Html.TextBoxFor(model => model.spo2[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.spo2[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>rr</th>
-            <td><input class="fs" type="text" value='@Model.rr[0]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[1]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[2]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[3]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[4]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[5]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[6]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[7]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[8]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[9]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[10]'></td>
-            <td><input class="fs" type="text" value='@Model.rr[11]'></td>
+            <td>@Html.TextBoxFor(model => model.rr[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.rr[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>quality</th>
-            <td><input class="fs" type="text" value='@Model.quality[0]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[1]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[2]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[3]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[4]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[5]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[6]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[7]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[8]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[9]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[10]'></td>
-            <td><input class="fs" type="text" value='@Model.quality[11]'></td>
+            <td>@Html.TextBoxFor(model => model.quality[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.quality[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>MAP</th>
-            <td><input class="fs" type="text" value='@Model.map[0]'></td>
-            <td><input class="fs" type="text" value='@Model.map[1]'></td>
-            <td><input class="fs" type="text" value='@Model.map[2]'></td>
-            <td><input class="fs" type="text" value='@Model.map[3]'></td>
-            <td><input class="fs" type="text" value='@Model.map[4]'></td>
-            <td><input class="fs" type="text" value='@Model.map[5]'></td>
-            <td><input class="fs" type="text" value='@Model.map[6]'></td>
-            <td><input class="fs" type="text" value='@Model.map[7]'></td>
-            <td><input class="fs" type="text" value='@Model.map[8]'></td>
-            <td><input class="fs" type="text" value='@Model.map[9]'></td>
-            <td><input class="fs" type="text" value='@Model.map[10]'></td>
-            <td><input class="fs" type="text" value='@Model.map[11]'></td>
+            <td>@Html.TextBoxFor(model => model.map[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.map[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>IV</th>
-            <td><input class="fs" type="text" value='@Model.iv[0]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[1]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[2]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[3]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[4]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[5]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[6]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[7]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[8]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[9]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[10]'></td>
-            <td><input class="fs" type="text" value='@Model.iv[11]'></td>
+            <td>@Html.TextBoxFor(model => model.iv[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.iv[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>Oral Intake</th>
-            <td><input class="fs" type="text" value='@Model.oralIntake[0]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[1]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[2]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[3]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[4]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[5]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[6]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[7]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[8]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[9]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[10]'></td>
-            <td><input class="fs" type="text" value='@Model.oralIntake[11]'></td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.oralIntake[11], new {Class="fs"})</td>
 
         </tr>
         <tr>
             <th>UOP</th>
-            <td><input class="fs" type="text" value='@Model.uop[0]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[1]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[2]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[3]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[4]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[5]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[6]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[7]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[8]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[9]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[10]'></td>
-            <td><input class="fs" type="text" value='@Model.uop[11]'></td>
+            <td>@Html.TextBoxFor(model => model.uop[0], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[1], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[2], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[3], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[4], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[5], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[6], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[7], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[8], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[9], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[10], new {Class="fs"})</td>
+            <td>@Html.TextBoxFor(model => model.uop[11], new {Class="fs"})</td>
 
         </tr>
     </tbody>
 
 </table>
+    <div id="right" class="col-md-3">
+        <input id="save_fs_btn" class="btn btn-primary" type="submit" value="Save" />
+    </div>
+    }
 </div>
 <div class="col-md-4">
     <!--<input class="btn btn-primary" id="back_btn" type="submit" value=""/>

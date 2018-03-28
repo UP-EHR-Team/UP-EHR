@@ -232,12 +232,30 @@ namespace UP_EHR.Controllers
         //[ChildActionOnly]
         public ActionResult _FlowSheets(FlowSheetsModel model)
         {
+
             return PartialView(model);
+        }
+
+        [HttpPost]
+        public ActionResult SaveFlowsheets(FlowSheetsModel model)
+        {
+            /*int id = Convert.ToInt32(Session["patientId"].ToString());
+            var db_logic = new DatabaseLogic(connection, id);
+            string mrn = (string)Session["mrn"];*/
+            //db_logic.PostFlowSheetsData(mrn, model);
+            //call db upload vals to db here
+
+            //FlowSheetsModel _model = db_logic.getFlowSheetsData(mrn, model);
+            //model = _model
+            return RedirectToAction("FlowSheets", model);
+            //return RedirectToAction("AssignPatient");
         }
 
         //[HttpPost]
         public ActionResult _FSForward(FlowSheetsModel model)
         {
+
+
             DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
             bool am = Convert.ToBoolean(Session["fs_am"]);
             model.am = am;

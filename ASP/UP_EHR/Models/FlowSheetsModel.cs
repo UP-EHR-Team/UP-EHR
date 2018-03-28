@@ -42,6 +42,11 @@ namespace UP_EHR.Models
         }
 
         public void forwardTime(){
+            /*for (int i = 0; i < bp.Count; i++){
+                bp[i]= 
+            }*/
+
+
             if (!am)
             {
                 curDate = curDate.AddDays(1);
