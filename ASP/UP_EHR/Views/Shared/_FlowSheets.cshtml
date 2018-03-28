@@ -1,6 +1,32 @@
 ﻿@model FlowSheetsModel
+<div class="col-md-4">
+    <!--<input class="btn btn-primary" id="back_btn" type="submit" value=""/>
+    <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>-->
 
+    @Ajax.ActionLink(" ", "_FSBackward", "Home", 
+
+    new AjaxOptions()
+    {
+        UpdateTargetId = "fs_partialView",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    },
+    new { @class = "btn btn-default", id="back_btn" })
+    
+    @Ajax.ActionLink(" ", "_FSForward", "Home", 
+
+    new AjaxOptions()
+    {
+        UpdateTargetId = "fs_partialView",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET"
+    },
+    new { @class = "btn btn-default", id="fwd_btn" })
+
+
+</div>
 <div class="col-md-9">
+    
     @using(Html.BeginForm("SaveFlowsheets", "Home", FormMethod.Post))
     {
 <table class="table table-striped table-bordered">
@@ -202,34 +228,8 @@
     </tbody>
 
 </table>
-    <div id="right" class="col-md-3">
-        <input id="save_fs_btn" class="btn btn-primary" type="submit" value="Save" />
+    <div class="col-md-12 right">
+        <input id="save_fs_btn" class="btn btn-primary pull-right" type="submit" value="Save" />
     </div>
     }
-</div>
-<div class="col-md-4">
-    <!--<input class="btn btn-primary" id="back_btn" type="submit" value=""/>
-    <input class="btn btn-primary" id="fwd_btn" type="submit" value=""/>-->
-
-    @Ajax.ActionLink(" ", "_FSBackward", "Home", 
-
-    new AjaxOptions()
-    {
-        UpdateTargetId = "fs_partialView",
-        InsertionMode = InsertionMode.Replace,
-        HttpMethod = "GET"
-    },
-    new { @class = "btn btn-default", id="back_btn" })
-    
-    @Ajax.ActionLink(" ", "_FSForward", "Home", 
-
-    new AjaxOptions()
-    {
-        UpdateTargetId = "fs_partialView",
-        InsertionMode = InsertionMode.Replace,
-        HttpMethod = "GET"
-    },
-    new { @class = "btn btn-default", id="fwd_btn" })
-
-
 </div>

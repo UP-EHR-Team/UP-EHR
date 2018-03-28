@@ -70,7 +70,16 @@ p {
     margin-top: 10px;
     float: left;
     font-family: myFirstFont;
-    margin-right: 10px;
+    margin-right: 10px
+
+}
+
+#save_fs_btn {
+    background-color: #5E6A71;
+    border-color: #5E6A71;
+    float: left;
+    font-family: myFirstFont;
+    margin-right:0px;
 }
 
 #fwd_btn {
@@ -79,10 +88,10 @@ p {
     background-position: center;
     background-color: #5E6A71;
     border-color: #5E6A71;
-    margin-top: 10px;
     float: left;
     font-family: myFirstFont;
     margin-right: 10px;
+    margin-bottom: 10px;
     width: 50px;
     height: 40px
 
@@ -93,10 +102,10 @@ p {
     background-position: center;
     background-color: #5E6A71;
     border-color: #5E6A71;
-    margin-top: 10px;
     float: left;
     font-family: myFirstFont;
     margin-right: 10px;
+    margin-bottom: 10px;
     width: 50px;
     height: 40px
 }
@@ -126,7 +135,7 @@ p {
 a:hover {
     color: grey
 }
-#back_btn:hover, #fwd_btn:hover, #login_btn:hover, #sub_btn:hover {
+#back_btn:hover, #fwd_btn:hover, #login_btn:hover, #sub_btn:hover, #save_fs_btn:hover {
     background-color: #1E1656;
     border-color: #1E1656
 }
@@ -173,8 +182,14 @@ a#ap_title:hover {
 #tab_title {
     color: #1E1656;
     font-size: 30px;
-    padding-top: 1%;
+
     padding-left: 1%
+}
+
+table {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
 }
 
 #p_name {
@@ -302,4 +317,10 @@ th#date {
 #flowsheets_head {
     background-color: #5E6A71;
     color: white
+}
+
+.right {
+    margin: 0px;
+    padding:0px;
+    border: 0px;
 }
