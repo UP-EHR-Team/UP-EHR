@@ -178,6 +178,67 @@ namespace UP_EHR.DatabaseObjects
             connection.Close();
         }
 
+        public void DatabaseIntegrityCheck(string mrn, FlowSheetsModel model)
+        {
+            connection.Open();
+            string patient_mrn = mrn;
+            //Boolean am = model.am;
+            //string sqlDate = model.sqlTime;
+            string dateTime0, dateTime1, dateTime2, dateTime3, dateTime4, dateTime5, dateTime6, dateTime7, dateTime8, dateTime9, dateTime10, dateTime11;
+            // tempDate = sqlDate.Substring(0, sqlDate.Length - 2);
+            /*
+            if (am)
+            {
+                dateTime0 = sqlDate;
+                dateTime1 = tempDate + "01";
+                dateTime2 = tempDate + "02";
+                dateTime3 = tempDate + "03";
+                dateTime4 = tempDate + "04";
+                dateTime5 = tempDate + "05";
+                dateTime6 = tempDate + "06";
+                dateTime7 = tempDate + "07";
+                dateTime8 = tempDate + "08";
+                dateTime9 = tempDate + "09";
+                dateTime10 = tempDate + "10";
+                dateTime11 = tempDate + "11";
+            }
+            else
+            {
+                dateTime0 = tempDate + "12";
+                dateTime1 = tempDate + "13";
+                dateTime2 = tempDate + "14";
+                dateTime3 = tempDate + "15";
+                dateTime4 = tempDate + "16";
+                dateTime5 = tempDate + "17";
+                dateTime6 = tempDate + "18";
+                dateTime7 = tempDate + "19";
+                dateTime8 = tempDate + "20";
+                dateTime9 = tempDate + "21";
+                dateTime10 = tempDate + "22";
+                dateTime11 = tempDate + "23";
+            }
+            */
+            dateTime0 = model.dateTime[0];
+            dateTime1 = model.dateTime[1];
+            dateTime2 = model.dateTime[2];
+            dateTime3 = model.dateTime[3];
+            dateTime4 = model.dateTime[4];
+            dateTime5 = model.dateTime[5];
+            dateTime6 = model.dateTime[6];
+            dateTime7 = model.dateTime[7];
+            dateTime8 = model.dateTime[8];
+            dateTime9 = model.dateTime[9];
+            dateTime10 = model.dateTime[10];
+            dateTime11 = model.dateTime[11];
+
+
+            //string query = $"INSERT IGNORE INTO fs_" + patient_mrn + " (date_time, bp, pulse, temp, respirations, spo2, rr, quality, map, iv, oral_intake, uop) VALUES (" + dateTime0 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime1 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime2 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime3 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime4 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime5 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime6 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime7 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime8 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime9 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime10 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (" + dateTime11 + ", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\")";
+            string query = $"INSERT IGNORE INTO fs_" + patient_mrn + " (date_time, bp, pulse, temp, respirations, spo2, rr, quality, map, iv, oral_intake, uop) VALUES (\"" + dateTime0 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime1 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime2 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime3 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime4 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime5 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime6 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime7 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime8 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime9 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime10 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\"), (\"" + dateTime11 + "\", \"\", \"\", \"\", \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\",  \"\")";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+
         public FlowSheetsModel GetFlowSheetsInputData(string mrn, FlowSheetsModel flowSheetsModel)
         {
             //var flowSheetsModel = new FlowSheetsModel();
@@ -201,9 +262,12 @@ namespace UP_EHR.DatabaseObjects
 
             //string patient_mrn = model.mrn.ToString();
             string patient_mrn = mrn;
-            string initTime = flowSheetsModel.sqlTime;
+            /*string initTime = flowSheetsModel.sqlTime;
             int tempHour = int.Parse(initTime.Substring(11)) + 11;
-            string finalTime = initTime.Substring(0, 10) + ":" + tempHour.ToString();
+            string finalTime = initTime.Substring(0, 10) + ":" + tempHour.ToString();*/
+            string initTime = flowSheetsModel.dateTime[0];
+            string finalTime = flowSheetsModel.dateTime[11];
+            
             string query = $"SELECT * FROM fs_" + patient_mrn +  " WHERE date_time BETWEEN \"" + initTime + "\" AND \"" + finalTime + "\"";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -268,18 +332,26 @@ namespace UP_EHR.DatabaseObjects
 
             return flowSheetsModel;
         }
-        /*
-        public void PostFlowSheetsData(FlowSheetsModel model, string mrn)
-        {
-            connection.Open();
-            string patient_mrn = mrn;
 
-            string query = $"INSERT INTO fs_" + patient_mrn + " (date_time, bp, pulse, temp, respirations, spo2, rr, quality, map, iv, oral_intake, uop) VALUES ('{model.dateTime[0]}', '{model.bp[0]}', '{model.pulse[0]}', '{model.temp[0]}', '{model.respirations[0]}', '{model.spo2[0]}', '{model.rr[0]}', '{model.quality[0]}', '{model.pulse[0]}', '{model.map[0]}', '{model.pulse[0]}','{model.iv[0]}', '{model.oralIntake[0]}', '{model.uop[0]}')";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.ExecuteNonQuery();
+        public FlowSheetsModel PostFlowSheetsData(FlowSheetsModel model, string mrn)
+        {
+            /*connection.Open();
+            string patient_mrn = mrn;
+            for (int i = 0; i < model.bp.Count(); i++){
+                string query = $"INSERT INTO fs_" + patient_mrn + " (date_time, bp, pulse, temp, respirations, spo2, rr, quality, map, iv, oral_intake, uop) VALUES ('{model.dateTime[i]}', '{model.bp[i]}', '{model.pulse[i]}', '{model.temp[i]}', '{model.respirations[i]}', '{model.spo2[i]}', '{model.rr[i]}', '{model.quality[i]}', '{model.map[i]}', '{model.iv[i]}', '{model.oralIntake[i]}', '{model.uop[i]}')";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
             connection.Close();
+            */
+
+
+            return model;
         }
-        */
+
+
+
 
         public void DeleteAllRows(string tableName)
         {

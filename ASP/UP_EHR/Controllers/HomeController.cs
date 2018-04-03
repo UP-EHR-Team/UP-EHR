@@ -131,6 +131,7 @@ namespace UP_EHR.Controllers
             if ((Session["fs_am"]) == null)
             {
                 model.curDate = DateTime.Today.Date;
+                //model.curDate = DateTime.Today.Date.AddDays(-5);
                 if (model.am)
                 {
                     model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.amTimes[0].Substring(0, 2);
@@ -141,6 +142,8 @@ namespace UP_EHR.Controllers
                 }
                 Session["fs_date"] = model.curDate;
                 Session["fs_am"] = model.am;
+                model = verifyModel(model);
+                db_logic.DatabaseIntegrityCheck(patient_mrn, model);
                 model = db_logic.GetFlowSheetsInputData(patient_mrn, model);
                 if (DateTime.Now.Hour < 12)
                 {
@@ -176,6 +179,8 @@ namespace UP_EHR.Controllers
                 {
                     model.sqlTime = model.curDate.ToString("MM:dd:yyyy") + ":" + model.pmTimes[0].Substring(0, 2);
                 }
+                model = verifyModel(model);
+                db_logic.DatabaseIntegrityCheck(patient_mrn, model);
                 model = db_logic.GetFlowSheetsInputData(patient_mrn, model);
             }
 
@@ -239,43 +244,120 @@ namespace UP_EHR.Controllers
         [HttpPost]
         public ActionResult SaveFlowsheets(FlowSheetsModel model)
         {
-            /*int id = Convert.ToInt32(Session["patientId"].ToString());
-            var db_logic = new DatabaseLogic(connection, id);
-            string mrn = (string)Session["mrn"];*/
-            //db_logic.PostFlowSheetsData(mrn, model);
-            //call db upload vals to db here
+            /*DateTime _curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool _am = Convert.ToBoolean(Session["fs_am"]);
+            model.am = _am;
+            model.curDate = _curDate;
 
-            //FlowSheetsModel _model = db_logic.getFlowSheetsData(mrn, model);
-            //model = _model
+            for (int i = 0; i < 12; i++){
+                if (model.am)
+                { 
+                    model.dateTime.Add(model.curDate.ToString("MM:dd:yyyy") + ":" + model.amTimes[i].Substring(0, 2));
+                }
+                else {
+                    model.dateTime.Add(model.curDate.ToString("MM:dd:yyyy") + ":" + model.pmTimes[i].Substring(0, 2));
+                }
+            }*/
+            model = verifyModel(model);
+                                
+            int id = Convert.ToInt32(Session["patientId"].ToString());
+            var db_logic = new DatabaseLogic(connection, id);
+            string mrn = Session["mrn"].ToString();
+            db_logic.PostFlowSheetsData(model, mrn);
+
+           
             return RedirectToAction("FlowSheets", model);
-            //return RedirectToAction("AssignPatient");
+
+        }
+
+        public FlowSheetsModel verifyModel(FlowSheetsModel model){
+            model.dateTime.Clear();
+            DateTime _curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool _am = Convert.ToBoolean(Session["fs_am"]);
+            model.am = _am;
+            model.curDate = _curDate;
+
+            for (int i = 0; i < 12; i++)
+            {
+                if (model.am)
+                {
+                    model.dateTime.Add(model.curDate.ToString("MM:dd:yyyy") + ":" + model.amTimes[i].Substring(0, 2));
+                }
+                else
+                {
+                    model.dateTime.Add(model.curDate.ToString("MM:dd:yyyy") + ":" + model.pmTimes[i].Substring(0, 2));
+                }
+            }
+
+            return model;
         }
 
         //[HttpPost]
         public ActionResult _FSForward(FlowSheetsModel model)
         {
-
-
-            DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            /*DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
             bool am = Convert.ToBoolean(Session["fs_am"]);
             model.am = am;
             model.curDate = curDate;
             model.forwardTime();
             Session["fs_date"] = model.curDate;
             Session["fs_am"] = model.am;
+            return RedirectToAction("FlowSheets", model);*/
+
+            /*DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool am = Convert.ToBoolean(Session["fs_am"]);
+            model.am = am;
+            model.curDate = curDate;*/
+
+            model = verifyModel(model);
+            model.forwardTime();
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+
+            model = verifyModel(model);
+
+            int id = Convert.ToInt32(Session["patientId"].ToString());
+            var db_logic = new DatabaseLogic(connection, id);
+            db_logic.DatabaseIntegrityCheck(Session["mrn"].ToString(), model);
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+
             return RedirectToAction("FlowSheets", model);
         }
+
+
 
         //[HttpPost]
         public ActionResult _FSBackward(FlowSheetsModel model)
         {
-            DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            /*DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
             bool am = Convert.ToBoolean(Session["fs_am"]);
             model.curDate = curDate;
             model.am = am;
             model.backwardTime();
             Session["fs_date"] = model.curDate;
             Session["fs_am"] = model.am;
+            return RedirectToAction("FlowSheets", model);*/
+
+            /*DateTime curDate = Convert.ToDateTime(Session["fs_date"]);
+            bool am = Convert.ToBoolean(Session["fs_am"]);
+            model.curDate = curDate;
+            model.am = am;*/
+
+
+            model = verifyModel(model);
+            model.backwardTime();
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+
+            model = verifyModel(model);
+
+            int id = Convert.ToInt32(Session["patientId"].ToString());
+            var db_logic = new DatabaseLogic(connection, id);
+            db_logic.DatabaseIntegrityCheck(Session["mrn"].ToString(), model);
+            Session["fs_date"] = model.curDate;
+            Session["fs_am"] = model.am;
+
             return RedirectToAction("FlowSheets", model);
         }
 
