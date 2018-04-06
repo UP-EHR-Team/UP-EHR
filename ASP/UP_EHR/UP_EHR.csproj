@@ -72,12 +72,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Core">
-      <HintPath>packages\AWSSDK.Core.3.3.21.9\lib\net45\AWSSDK.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="MySql.Data">
       <HintPath>..\..\mysql-connector-net-6.10.6-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>packages\AWSSDK.Core.3.3.21.20\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3">
+      <HintPath>packages\AWSSDK.S3.3.3.17.3\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +89,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="Resources\" />
     <Folder Include="DatabaseObjects\" />
+    <Folder Include="Resources\PatientImages\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -160,6 +164,12 @@
     <Content Include="Resources\OpenSans-SemiBoldItalic.ttf" />
     <Content Include="Views\Shared\_NavigationPane.cshtml" />
     <Content Include="Resources\PatientImage.png" />
+    <Content Include="Views\Shared\_FlowSheets.cshtml" />
+    <Content Include="Resources\back_arrow.png" />
+    <Content Include="Resources\fwd_arrow.png" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Resources\PatientImages\Patient0.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />

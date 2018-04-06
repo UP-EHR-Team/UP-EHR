@@ -10,18 +10,26 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Web.SessionState;
 using System.IO;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
+using Amazon.S3.Transfer;
+using Amazon.Runtime.CredentialManagement;
+using System.IO;
+
 
 namespace UP_EHR.Controllers
 {
     public class HomeController : Controller
     {
+        public string awsAccessKey = "AKIAJYVRLRX3UJBZ6P7Q";
+        public string awsSecretKey = "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";
         //Set the database connection variables
         static string dbuser = "upehr";
         static string dbpass = "graduate";
         static string dbhost = "aa182qkpqn2nq7j.czhw4bdantwp.us-west-2.rds.amazonaws.com";
         static string dbname = "upehr";
         static string dbconnect = "Data Source=" + dbhost + ";Initial Catalog=" + dbname + ";User ID=" + dbuser + ";Password=" + dbpass + ";";
-
         //Initilalize conneciton to be opened and closed during later HTTP responses
         MySqlConnection connection = new MySqlConnection(dbconnect);
 
@@ -81,7 +89,8 @@ namespace UP_EHR.Controllers
             Session["patientId"] = databaseId;
             Session["mrn"] = model.mrn;
 
-
+            String s = "https://s3-us-west-2.amazonaws.com/ehrbeta/Patient" + Session["mrn"].ToString() + ".png";
+            model.imagePath = s;
             return View(model);
         }
 
@@ -93,24 +102,40 @@ namespace UP_EHR.Controllers
             var db_logic = new DatabaseLogic(connection, db_id);
 
             db_logic.PostSummaryInputData(model);
+            String s = "https://s3-us-west-2.amazonaws.com/ehrbeta/Patient" + Session["mrn"].ToString()+ ".png";
+            model.imagePath = s;
 
             return RedirectToAction("Summary", new { databaseId = db_id});
         }
 
-        [HttpPost]
+
+        /*[HttpPost]
         public ActionResult SummaryImage(HttpPostedFileBase file)
         {
+            string bucketName = "ehrbeta";
+            string keyName = Session["mrn"].ToString();
+            string filePath = "";
+
             if (file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                filePath = path;
                 file.SaveAs(path);
                 //SummaryViewModel svm 
             }
 
+
+
             //return RedirectToAction("Summary");
 
             return View();
+        }*/
+
+        public ActionResult GetImage(){
+            String s = "https://s3-us-west-2.amazonaws.com/ehrbeta/Patient" + Session["mrn"].ToString() + ".png";
+
+            return Redirect(s);
         }
 
         [HttpGet]
@@ -125,7 +150,7 @@ namespace UP_EHR.Controllers
             var db_logic = new DatabaseLogic(connection);
             string patient_mrn = Session["mrn"].ToString();
 
-
+           
             model.databaseId = Convert.ToInt32(Session["patientId"].ToString());
 
             if ((Session["fs_am"]) == null)
@@ -199,6 +224,50 @@ namespace UP_EHR.Controllers
             return RedirectToAction("FlowSheets");
         }
         */
+
+        [HttpPost]
+        public ActionResult SummaryImage(HttpPostedFileBase file)
+        {
+            var dbid = Session["patientId"].ToString();
+            int db_id = Convert.ToInt32(dbid);
+            var db_logic = new DatabaseLogic(connection, db_id);
+
+            if (file.ContentLength > 0)
+            {
+                string savepath = Path.Combine(Server.MapPath("~/Resources/PatientImages/Patient" + Session["mrn"].ToString() + ".png"));
+                string bucketName = "ehrbeta";
+                string keyName = "Patient" + Session["mrn"].ToString() + ".png";
+
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Resources/PatientImages"), fileName);
+                file.SaveAs(savepath);
+
+                IAmazonS3 client;
+                client = new AmazonS3Client(awsAccessKey, awsSecretKey, RegionEndpoint.USWest2);
+                TransferUtilityConfig config = new TransferUtilityConfig();
+
+                /*TransferUtility fileT = new TransferUtility(new AmazonS3Client(awsAccessKey, awsSecretKey, RegionEndpoint.USWest2));
+                fileT.Upload(savepath, bucketName, keyName);*/
+                PutObjectRequest request = new PutObjectRequest()
+                {
+                    BucketName = bucketName,
+                    Key = keyName,
+                    FilePath = savepath,
+                    //ContentType = file.ContentType,
+                    CannedACL = S3CannedACL.PublicRead
+                    //StorageClass = S3StorageClass.ReducedRedundancy;
+                };
+
+                PutObjectResponse response = client.PutObject(request);
+
+
+            }
+
+            return RedirectToAction("Summary", new { databaseId = db_id });
+        }
+
+
+
 
         [HttpGet]
         public ActionResult AssignPatient()

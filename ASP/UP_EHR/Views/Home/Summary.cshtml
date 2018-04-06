@@ -28,11 +28,13 @@
         
         <div class="col-md-2" id="pad_left2">
             <div class="row">
-                <img src='@Url.Content("~/Resources/PatientImage.png")' alt="Image" width="90%" height="auto">
+                <!--<img src='@Url.Content("~/Resources/PatientImage.png")' alt="Image" width="90%" height="auto">-->
+                <div id="patientImg" width="90%" height="auto"><img src='@Model.imagePath' width="90%" height="auto"/></div>
             </div>
             <div class="row">
                 <form action="SummaryImage" method="post" enctype="multipart/form-data">
                     <input type="file" name="file" id="file"/>
+                    <input type="submit" value="Save Image" class="btn btn-primary" id="saveImage_btn"/>
                 </form>
             </div>
         </div>

@@ -64,7 +64,7 @@ p {
     text-align: center
 }
 
-#login_btn, #sub_btn {
+#login_btn, #sub_btn, #saveImage_btn {
     background-color: #5E6A71;
     border-color: #5E6A71;
     margin-top: 10px;
@@ -135,7 +135,7 @@ p {
 a:hover {
     color: grey
 }
-#back_btn:hover, #fwd_btn:hover, #login_btn:hover, #sub_btn:hover, #save_fs_btn:hover {
+#back_btn:hover, #fwd_btn:hover, #login_btn:hover, #sub_btn:hover, #save_fs_btn:hover, #saveImage_btn:hover {
     background-color: #1E1656;
     border-color: #1E1656
 }
@@ -323,4 +323,9 @@ th#date {
     margin: 0px;
     padding:0px;
     border: 0px;
+}
+
+#patientImage {
+    width: 15px;
+    height:auto;
 }

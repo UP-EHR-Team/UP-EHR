@@ -373,8 +373,6 @@ namespace UP_EHR.DatabaseObjects
             cmd.ExecuteNonQuery();
             connection.Close();
 
-                
-
 
 
         }

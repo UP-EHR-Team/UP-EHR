@@ -33,6 +33,7 @@ namespace UP_EHR.Models
         public string codeStatus { get; set; }
         public string healthcareDirs { get; set; }
         public string language { get; set; }
+        public string imagePath { get; set; }
 
 
     }
