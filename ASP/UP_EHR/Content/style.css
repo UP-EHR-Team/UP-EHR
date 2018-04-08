@@ -268,7 +268,8 @@ a#left_menu {
     border: 0;
     box-shadow: none;
     color: black;
-    justify-content: space-around
+    justify-content: space-around;
+    width: 100%
 }
 
 #s_textbox {

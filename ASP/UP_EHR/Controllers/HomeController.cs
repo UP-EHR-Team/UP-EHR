@@ -22,13 +22,13 @@ namespace UP_EHR.Controllers
 {
     public class HomeController : Controller
     {
-        public string awsAccessKey = "AKIAJYVRLRX3UJBZ6P7Q";
-        public string awsSecretKey = "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";
+        public string awsAccessKey = "";
+        public string awsSecretKey = "";
         //Set the database connection variables
-        static string dbuser = "upehr";
-        static string dbpass = "graduate";
-        static string dbhost = "aa182qkpqn2nq7j.czhw4bdantwp.us-west-2.rds.amazonaws.com";
-        static string dbname = "upehr";
+        static string dbuser = "";
+        static string dbpass = "";
+        static string dbhost = "";
+        static string dbname = "";
         static string dbconnect = "Data Source=" + dbhost + ";Initial Catalog=" + dbname + ";User ID=" + dbuser + ";Password=" + dbpass + ";";
         //Initilalize conneciton to be opened and closed during later HTTP responses
         MySqlConnection connection = new MySqlConnection(dbconnect);
@@ -89,8 +89,9 @@ namespace UP_EHR.Controllers
             Session["patientId"] = databaseId;
             Session["mrn"] = model.mrn;
 
-            String s = "https://s3-us-west-2.amazonaws.com/ehrbeta/Patient" + Session["mrn"].ToString() + ".png";
+            String s = "https://s3-us-west-2.amazonaws.com/ehr-prod/Patient" + Session["mrn"].ToString() + ".png";
             model.imagePath = s;
+
             return View(model);
         }
 
@@ -102,7 +103,7 @@ namespace UP_EHR.Controllers
             var db_logic = new DatabaseLogic(connection, db_id);
 
             db_logic.PostSummaryInputData(model);
-            String s = "https://s3-us-west-2.amazonaws.com/ehrbeta/Patient" + Session["mrn"].ToString()+ ".png";
+            String s = "https://s3-us-west-2.amazonaws.com/ehr-prod/Patient" + Session["mrn"].ToString()+ ".png";
             model.imagePath = s;
 
             return RedirectToAction("Summary", new { databaseId = db_id});
@@ -235,7 +236,7 @@ namespace UP_EHR.Controllers
             if (file.ContentLength > 0)
             {
                 string savepath = Path.Combine(Server.MapPath("~/Resources/PatientImages/Patient" + Session["mrn"].ToString() + ".png"));
-                string bucketName = "ehrbeta";
+                string bucketName = "ehr-prod";
                 string keyName = "Patient" + Session["mrn"].ToString() + ".png";
 
                 var fileName = Path.GetFileName(file.FileName);
@@ -254,7 +255,7 @@ namespace UP_EHR.Controllers
                     Key = keyName,
                     FilePath = savepath,
                     //ContentType = file.ContentType,
-                    CannedACL = S3CannedACL.PublicRead
+                    CannedACL = S3CannedACL.PublicReadWrite
                     //StorageClass = S3StorageClass.ReducedRedundancy;
                 };
 
