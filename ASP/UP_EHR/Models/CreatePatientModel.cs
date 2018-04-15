@@ -4,10 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace UP_EHR.Models
 {
+    /*
+     * CreatePatientModel
+     * 
+     * Holds values necessary for creating a new patient.
+     *
+     */
     public class CreatePatientModel
     {
-        //using strings for everything as of now, might need to change some of those in the future
-        //such as birthDate, might want to force the user to type in DateTime object correctly
+        //using strings for most things to avoid casting issues, especially with
+        //user input. MRN is int.
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string gender { get; set; }

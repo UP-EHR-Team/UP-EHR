@@ -6,11 +6,8 @@ namespace UP_EHR.Models
 {
     public class AssignPatientModel
     {
-        //to use list or IEnumerable? look into it, using list for now
+        //List of patients that will be used to display patient names on the 
+        //assign patient page.
         public List<Patient> Patients { get; set; }
-
-        //consider method here that puts all patients retreived from database into list Patients
-        //maybe just their names
-        //AddToPatients()
     }
 }
