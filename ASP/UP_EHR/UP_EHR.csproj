@@ -169,7 +169,6 @@
     <Content Include="Resources\fwd_arrow.png" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Resources\PatientImages\Patient0.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\umd\popper.min.js.map" />
