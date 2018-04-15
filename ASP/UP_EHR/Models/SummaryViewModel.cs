@@ -2,13 +2,19 @@
 using System.Web.UI.WebControls;
 namespace UP_EHR.Models
 {
+    /*
+     * SummaryViewModel
+     * 
+     * Data for the Summary page.
+     * 
+     */
     public class SummaryViewModel
     {
         //grab this data from 'summary' table
         public string inputData { get; set; }
         public int mrn { get; set; }
 
-        //internet says to store image path here and store actual images in S3 bucket
+        //store image path here and store actual images in S3 bucket
         public string image { get; set; }
 
         //calculate this from D.O.B.

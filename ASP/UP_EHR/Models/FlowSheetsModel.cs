@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace UP_EHR.Models
 {
+    /*
+     * FlowSheetsModel
+     * 
+     * Object for data that will be used with the Flow Sheets page.
+     * 
+     */
     public class FlowSheetsModel
     {
         public int databaseId { get; set; }
@@ -43,6 +49,13 @@ namespace UP_EHR.Models
 
         }
 
+        /*
+         * forwardTime - void
+         * 
+         * Logic for determining which times should be displayed on the Flow
+         * Sheets page when the forward button is clicked.
+         * 
+         */
         public void forwardTime(){
 
 
@@ -73,6 +86,14 @@ namespace UP_EHR.Models
             }
 
         }
+
+        /*
+         * backwardTime - void
+         * 
+         * Logic for determining which times should be displayed on the Flow
+         * Sheets page when the backward button is clicked.
+         * 
+         */
         public void backwardTime(){
             if (am)
             {
